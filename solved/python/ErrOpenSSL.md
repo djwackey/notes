@@ -28,3 +28,18 @@ apt-get install libffi-dev libssl-dev
 <pre>
 sudo pip install requests==2.5.3
 </pre>
+
+可能出现的问题：
+使用pip或easy_install安装pyopenssl的时候，安装cffi的时候，报错如下：
+<pre>
+error: Setup script exited with error: command 'gcc' failed with exit status 1
+</pre>
+仔细观察会发现，错误信息有提示:
+<pre>
+Package libffi was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libffi.pc` to the PKG_CONFIG_PATH environment variable
+No package 'libffi' found，
+</pre>
+那是缺少安装libffi-devel开发库，安装即可解决问题！
+CentOS系统，直接执行yum install libffi-devel。
+Ubuntu系统，直接执行apt-get install libffi-dev。
