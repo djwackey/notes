@@ -1,5 +1,5 @@
-20150828
-
+<blockquote>20150828</blockquote>
+### 问题描述 ###
 今天在做苹果支付订单验证的时候，出现了问题：
 <pre>
 /usr/local/lib/python2.7/dist-packages/requests/packages/urllib3/util/ssl_.py:79: 
@@ -22,14 +22,13 @@ pip install pyopenssl ndg-httpsclient pyasn1
 apt-get install libffi-dev libssl-dev
 </pre>
 
-另外的解决方案是：
-
+### 其他解决方案：###
 有人说升级python至2.7.9版本即可解决问题，若不想升级的话，降低你的requests版本至2.5.3
 <pre>
 sudo pip install requests==2.5.3
 </pre>
 
-可能出现的问题：
+### 问题解决：###
 使用pip或easy_install安装pyopenssl的时候，安装cffi的时候，报错如下：
 <pre>
 error: Setup script exited with error: command 'gcc' failed with exit status 1
@@ -41,5 +40,5 @@ Perhaps you should add the directory containing `libffi.pc` to the PKG_CONFIG_PA
 No package 'libffi' found，
 </pre>
 那是缺少安装libffi-devel开发库，安装即可解决问题！
+
 CentOS系统，直接执行yum install libffi-devel。
-Ubuntu系统，直接执行apt-get install libffi-dev。
