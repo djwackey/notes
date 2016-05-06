@@ -46,14 +46,18 @@ def send_bi(host, port, category, message):
 
     if result == scribe.ResultCode.OK:
         result = "success for sending bi log"
+    elif result == scribe.ResultCode.TRY_LATER:
+        result = "try it later"
+    else:
+        result = "Unknown error code."
 
     return result
 
 
-if __name__ == '__main__':
-
-    # using wsgi
-    app.wsgi_app = ProxyFix(app.wsgi_app)
-
-    app.run(host='0.0.0.0', port=8080, debug=True)
+#if __name__ == '__main__':
+#
+#    # using wsgi
+#    app.wsgi_app = ProxyFix(app.wsgi_app)
+#
+#    app.run(host='0.0.0.0', port=8080, debug=True)
 
