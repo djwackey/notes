@@ -10,7 +10,7 @@ chkconfig docker on
 ### Docker基本命令
 
 Docker命令|参数说明|功能描述|
--------|-----
+-------|-------|-------
 docker pull ubuntu:latest||拉取镜像</br>（ubuntu为镜像名称，latest为标签名称）
 docker push ubuntu:latest||推送镜像到仓库
 docker info||显示镜像信息
@@ -54,15 +54,16 @@ docker-compose为Python开发的项目，所以
 
 ### 3.docker-swarm
 
-
+```
 Transaction check error:
   file /usr/lib/systemd/system/blk-availability.service from install of device-mapper-7:1.02.107-5.el7_2.1.x86_64 conflicts with file from package lvm2-7:2.02.105-14.el7.x86_64
   file /usr/sbin/blkdeactivate from install of device-mapper-7:1.02.107-5.el7_2.1.x86_64 conflicts with file from package lvm2-7:2.02.105-14.el7.x86_64
   file /usr/share/man/man8/blkdeactivate.8.gz from install of device-mapper-7:1.02.107-5.el7_2.1.x86_64 conflicts with file from package lvm2-7:2.02.105-14.el7.x86_64
+```
 
 Error Summary
 -------------
 
 Reference:
-https://github.com/docker/docker/issues/12108
-https://bugzilla.redhat.com/show_bug.cgi?id=1207839
+* https://github.com/docker/docker/issues/12108
+* https://bugzilla.redhat.com/show_bug.cgi?id=1207839
