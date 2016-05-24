@@ -31,7 +31,7 @@ show databases;
 
 创建数据库
 <pre>
-create database db_test;
+create database db_test CHARACTER SET utf8;
 </pre>
 
 删除数据库
