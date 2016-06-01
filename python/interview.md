@@ -1,3 +1,5 @@
+https://www.toptal.com/python/interview-questions
+
 1.写出以下表达式的结果：
 ```
 1.
@@ -61,8 +63,7 @@ print [m(2) for m in multipliers()]
 
 # result: [6, 6, 6, 6]
 # explain:
-#
-# Python闭包的后期绑定导致的late binding
+# Python闭包的后期绑定导致的late binding，闭包中的变量在内部函数被调用的时候才被查找。
 def multipliers():
     return [lambda x, i = i:i * x for i in range(4)]
 ```
