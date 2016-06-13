@@ -3,8 +3,8 @@
 今天在做苹果支付订单验证的时候，出现了问题：
 <pre>
 /usr/local/lib/python2.7/dist-packages/requests/packages/urllib3/util/ssl_.py:79: 
-          InsecurePlatformWarning: A true SSLContext object is not available. 
-          This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. 
+          InsecurePlatformWarning: A true SSLContext object is not available.
+          This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail.
           For more information, see https://urllib3.readthedocs.org/en/latest/security.html#insecureplatformwarning.
   InsecurePlatformWarning
 </pre>
