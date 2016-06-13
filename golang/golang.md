@@ -19,6 +19,11 @@ cd go/src && ./all.bash
 
 4.配置Golang1.4.2环境变量
 ```
+export GOROOT_BOOTSTRAP="/home/wackey/project/go1.4"
+
+export GOBIN="/home/wackey/.vim/binaries/bin"
+export GOROOT="/home/wackey/project/go1.6"
+export PATH="$GOROOT/bin:$PATH"
 ```
 
 5.下载Golang1.6.2源码
