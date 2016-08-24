@@ -9,6 +9,20 @@ set ts=4
 set expandtab
 </pre>
 
+nerdtree关闭主窗口时，自动退出vim
+```
+autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+function! s:CloseIfOnlyNerdTreeLeft()
+    if exists("t:NERDTreeBufName")
+        if bufwinnr(t:NERDTreeBufName) != -1
+            if winnr("$") == 1
+                q
+            endif
+        endif
+    endif
+endfunction
+```
+
 打开文件自动跳到上次位置
 <pre>
 if has("autocmd")
