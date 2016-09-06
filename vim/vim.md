@@ -23,6 +23,13 @@ function! s:CloseIfOnlyNerdTreeLeft()
 endfunction
 ```
 
+编辑文件，自动打开nerdtree
+```
+autocmd vimenter * NERDTree
+wincmd w
+autocmd VimEnter * wincmd w
+```
+
 打开文件自动跳到上次位置
 <pre>
 if has("autocmd")

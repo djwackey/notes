@@ -228,6 +228,11 @@ map <F3> :NERDTreeToggle<CR>
 nmap ,t :NERDTreeFind<CR>
 " don;t show these file types
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
+" auto show nerdtree, when opening file
+autocmd vimenter * NERDTree
+" focus cursor to right region.(Ctrl + w + w)
+wincmd w
+autocmd VimEnter * wincmd w
 
 " Airline ------------------------------
 
