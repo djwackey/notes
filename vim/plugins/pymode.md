@@ -251,16 +251,19 @@ Pymode支持pylint, pep257, pep8, pyflakes, mccabe代码检测。你可以运行
 可能的值为：pylint, pep8, mccabe, pep257, pyflakes
 
 **忽略错误和警告**
+
 例如："E501,W002", "E2,W"（使用E2开头，忽略所有的警告和错误）
 
     let g:pymode_lint_ignore = "E501,W"
 
 **选择一些错误和警告**
+
 例如：你可以使用 'W'开头，禁用所有的警告，除非你想看到 'W0011' 和 'W430'警告
 
     let g:pymode_lint_select = "E501,W0011,W430"
 
 **相关排序**
+
 如果不是空的，错误将会通过相关性排序。例如：`let g:pymode_lint_sort = ['E', 'C', 'I']` 错误首先会是 'E'，然后是 'C'，最后 ...
 
     let g:pymode_lint_sort = []
