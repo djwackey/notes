@@ -2,43 +2,53 @@
 - 登录
 - 注销
 - 看板
-    - [我创建的看板](#TI-1)
-    - [我加入的看板](#TI-2)
-    - [我关闭的看板](#TI-3)
-    - [最近我访问的看板](#TI-4)
-    - [指派给我的任务](#TI-5)
-    - [新建看板](#TI-6)
-    - [编辑看板](#TI-7)
-    - [打开/关闭看板](#TI-8)
-    - [删除看板](#TI-9)
-    - [看板详情](#TI-10)
+    - [我创建的看板](#created_board)
+    - [我加入的看板](#joined_board)
+    - [我关闭的看板](#closed_board)
+    - [最近我访问的看板](#recently_board)
+    - [指派给我的任务](#assigned_tasks)
+    - [新建看板](#insert_board)
+    - [编辑看板](#update_board)
+    - [打开/关闭看板](#enabled_board)
+    - [删除看板](#remove_board)
+    - [看板详情](#board_detail)
+    - [看板列表及任务](#states_and_cards)
 - 成员
-    - [看板成员列表](#TI-11)
-    - [加入看板](#TI-12)
-    - [退出看板](#TI-13)
-    - [邀请成员](#TI-14)
-    - [成员详情](TI-13)
-    - [移除成员](TI-14)
-    - [同意/拒绝加入看板](TI-15)
-    - [获取好友列表](TI-16)
+    - [看板成员列表](#member_list)
+    - [加入看板](#join_the_board)
+    - [退出看板](#quit_the_board)
+    - [邀请成员](#invite_member)
+    - [成员详情](#member_detail)
+    - [移除成员](#remove_member)
+    - [同意/拒绝加入看板](#agree_or_refuse)
+    - [获取好友列表](#friend_list)
 - 列表
-    - [看板列表](TI-17)
-    - [新建列表](TI-18)
-    - [编辑列表](TI-19)
-    - [删除列表](TI-20)
+    - [看板列表](#state_list)
+    - [新建看板列表](#insert_state)
+    - [编辑看板列表](#update_state)
+    - [删除看板列表](#remove_state)
+    - [批量归档任务](#bulk_archived)
+    - [移动列表任务](#move_cards)
 - 任务
-    - [今日工作情况](TI-21)
-    - [任务列表](TI-22)
-    - [新建任务](TI-23)
-    - [编辑任务](TI-24)
-    - [归档任务](TI-25)
-    - [任务详情](TI-26)
+    - [今日工作情况](#daily_case)
+    - [任务列表](#card_list)
+    - [新建任务](#insert_card)
+    - [编辑任务](#update_card)
+    - [任务详情](#card_detail)
+    - [复制任务](#copy_card)
+    - [移动任务](#move_card)
+    - [上传任务附件](#upload_card_attachment)
 - 评论
-    - [任务评论](TI-27)
-    - [新建评论](TI-28)
+    - [任务评论](#comment_list)
+    - [新建评论](#insert_comment)
 - 动态
-    - [看板动态](TI-29)
-    - [任务动态](TI-30)
+    - [看板动态](#board_actions)
+    - [任务动态](#card_actions)
+- 通知
+    - [通知列表](#notify_list)
+    - [通知详情](#notify_detail)
+- 附件
+    - [附件上传](#upload)
 - 工作日志
     - [工作日志列表](TI-31)
     - [编辑工作日志](TI-32)
@@ -51,7 +61,14 @@
 
 | 序号 | 修订内容 | 修订人 | 修订日期 | 版本 | 备注 |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| 1 | 初始化文档 | 闫飞 | 2016-12-22 | 1.0 | | |
+| 1 | 初始化文档 | 闫飞 | 2016-12-22 | 1.0 | |
+| 2 | 增加通知接口 | 闫飞 | 2017-01-03 | 1.1 | |
+| 3 | 更新看板成员接口 | 闫飞 | 2017-01-09 | 1.2 | |
+| 4 | 看板成员列表接口增加uuid标识 | 闫飞 | 2017-01-09 | 1.3 | |
+| 5 | 增加附件上传接口 | 闫飞 | 2017-01-12 | 1.4 | |
+| 6 | 登录接口增加uuid字段 | 闫飞 | 2017-01-18 | 1.5 | |
+| 7 | 增加复制和移动任务接口 | 闫飞 | 2017-01-22 | 1.6 | |
+| 8 | 增加接口目录跳转链接 | 闫飞 | 2017-01-22 | 1.7 | | |
 
 ---
 **HTTP方法定义：**
@@ -76,6 +93,13 @@
 **错误代码定义**
 ---
 
+| 错误代码 | 错误描述 | 备注 |
+| :---: | :---: | :---: |
+| -1| 执行失败 | |
+| 0 | 执行成功 | |
+| 401 | 你没有足够的权限访问资源 | |
+| 1002 | 请求参数无效 | |
+
 **接口说明**
 ---
 **功能说明**：登录
@@ -96,18 +120,21 @@
             "identities": [
                 # 服务方（若无，则没有该身份，默认选中）
                 "dev": {
-                    "name": "",    # 服务方名称
-                    "avatar": ""   # 头像
+                    "uuid": "",     # 服务方标识
+                    "name": "",     # 服务方名称
+                    "avatar": ""    # 头像
                 },
                 # 需求方（若无，则没有该身份）
                 "req": {
-                    "name": "",    # 需求方名称
-                    "avatar": ""   # 头像
+                    "uuid": "",     # 需求方标识
+                    "name": "",     # 需求方名称
+                    "avatar": ""    # 头像
                 },
                 # 团队
                 "team": {
-                    "name": "",    # 团队名称
-                    "avatar": ""   # 头像
+                    "uuid": "",     # 团队标识
+                    "name": "",     # 团队名称
+                    "avatar": ""    # 头像
                 }
             ]
         }
@@ -132,7 +159,7 @@
 
 ---
 
-**功能说明**：我创建的看板
+**功能说明**：<b id="created_board">我创建的看板</b>
 
 **请求地址**：/api/v1/boards?creator={creator}
 
@@ -142,7 +169,7 @@
 
 | 参数名称 | 参数类型 | 是否必须 | 描述 |
 | :---: | :---: | :---: | :---: |
-| creator | int | 是 | 所属用户编号 |
+| creator | string | 是 | 所属用户UUID |
 | page_no | int | 否 | 页数，默认第一页 |
 | page_size | int | 否 | 单页尺寸，默认50条 |
 
@@ -172,7 +199,7 @@
     }
 `备注：按照看板创建时间倒序排列`
 
-**功能说明**：我加入的看板
+**功能说明**：<b id="joined_board">我加入的看板</b>
 
 **请求地址**：/api/v1/boards?joined_user={user_id}
 
@@ -184,7 +211,7 @@
 | :---: | :---: | :---: | :---: |
 | page_no | int | 否 | 页数，默认第一页 |
 | page_size | int | 否 | 单页尺寸，默认50条 |
-| joined_user | int | 是 | 加入看板的用户编号 |
+| joined_user | string | 是 | 加入看板的用户UUID |
 
 **返回结果**：
 
@@ -201,10 +228,10 @@
             },
             "boards": [
                 {
-                    "uuid": "xyalqihfha",      # 看板标识
+                    "uuid": "xyalqihfha",       # 看板标识
                     "name": "沃客家族看板",     # 看板名称
-                    "status": "1",             # 看板状态（1-激活，0-关闭）
-                    "creator": "小王",         # 看板创建者昵称
+                    "status": "1",              # 看板状态（1-激活，0-关闭）
+                    "creator": "小王",          # 看板创建者昵称
                     "avatar": "http://192.168.1.1/avatars/4.jpg",  # 看板创建者头像
                     "thumbnail": "http://192.168.1.1/board/1.jpg"  # 看板配图
                 }
@@ -212,7 +239,7 @@
         }
     }
 
-**功能说明**：我关闭的看板
+**功能说明**：<b id="closed_board">我关闭的看板</b>
 
 **请求地址**：/api/v1/boards?operator={operator}&status=0
 
@@ -222,7 +249,7 @@
 | :---: | :---: | :---: | :---: |
 | page_no | int | 否 | 页数，默认第一页 |
 | page_size | int | 否 | 单页尺寸，默认50条 |
-| operator | int | 是 | 操作用户编号 |
+| operator | string | 是 | 操作用户UUID |
 | status | int | 是 | 看板状态，0-关闭的，1-打开的 |
 
 **返回结果**：
@@ -247,9 +274,9 @@
         }
     }
 
-**功能说明**：最近我访问的看板
+**功能说明**：<b id="recently_board">最近我访问的看板</b>
 
-**请求地址**：/api/v1/boards?user_id={user_id}&recently=1
+**请求地址**：/api/v1/boards?user_id={user_id}&recently
 
 **请求方式**：GET
 
@@ -259,8 +286,7 @@
 | :---: | :---: | :---: | :---: |
 | page_no | int | 否 | 页数，默认第一页 |
 | page_size | int | 否 | 单页尺寸，默认50条 |
-| user_id | int | 是 | 用户编号 |
-| recently | int | 是 | 最近访问标识，值恒为1 |
+| user_id | string | 是 | 用户UUID |
 
 **返回结果**：
 
@@ -277,15 +303,15 @@
             # 我最近进入的5个看板的配图和名称
             "boards": [
                 {
-                    "uuid": "d2db3d50ae0ab96f",  # 看板标识
-                    "name": "小游戏的设计",       # 看板名称
-                    "thumbnail": "http://192.168.1.1/board/1.jpg"  # 看板配图
+                    "uuid": "d2db3d50ae0ab96f",                     # 看板标识
+                    "name": "小游戏的设计",                         # 看板名称
+                    "thumbnail": "http://192.168.1.1/board/1.jpg"   # 看板配图
                 }
             ]
         }
     }
 
-**功能说明**：指派给我的任务
+**功能说明**：<b id="assigned_tasks">指派给我的任务</b>
 
 **请求地址**：/api/v1/tasks
 
@@ -297,7 +323,7 @@
 | :---: | :---: | :---: | :---: |
 | page_no | int | 否 | 页数，默认第一页 |
 | page_size | int | 否 | 单页尺寸，默认50条 |
-| assigned_to | int | 是 | 被指派的用户编号 |
+| assigned_to | string | 是 | 被指派的用户UUID |
 
 **返回结果**：
 
@@ -313,17 +339,17 @@
             },
             "tasks": [
                 {
-                    "task_uuid": "f189ef21564d434a",          # 任务标识
-                    "task_name": "放大手机话费",               # 任务名称
-                    "board_uuid": "f189ef21564d434a",   # 看板标识
-                    "board_name": "你就是我的天使",            # 看板名称
-                    "board_icon": "http://192.168.1.1/1.jpg"  # 看板图标
+                    "task_uuid": "f189ef21564d434a",            # 任务标识
+                    "task_name": "放大手机话费",                # 任务名称
+                    "board_uuid": "f189ef21564d434a",           # 看板标识
+                    "board_name": "你就是我的天使",             # 看板名称
+                    "board_icon": "http://192.168.1.1/1.jpg"    # 看板图标
                 }
             ]
         }
     }
 
-**功能说明**：新建看板
+**功能说明**：<b id="insert_board">新建看板</b>
 
 **请求地址**：/api/v1/board
 
@@ -334,8 +360,8 @@
 | 参数名称 | 参数类型 | 是否必须 | 描述 |
 | :---: | :---: | :---: | :---: |
 | name | string | 是 | 看板名称，2-50个字符 |
-| desc | string | 是 | 看板描述，500个字符以内 |
-| thumbnail | string | 是 | 看板配图，图片的相对URL地址 |
+| thumbnail | string | 是 | 看板配图附件标识 |
+| description | string | 否 | 看板描述，500个字符以内 |
 
 **返回结果**：
 
@@ -348,7 +374,7 @@
         }
     }
 
-**功能说明**：编辑看板
+**功能说明**：<b id="update_board">编辑看板</b>
 
 **请求地址**：/api/v1/board/{uuid}
 
@@ -370,7 +396,7 @@
         "data": {}
     }
 
-**功能说明**：打开/关闭看板
+**功能说明**：<b id="enabled_board">打开/关闭看板</b>
 
 **请求地址**：/api/v1/board/{uuid}
 
@@ -392,7 +418,7 @@
     }
 
 
-**功能说明**：删除看板
+**功能说明**：<b id="remove_board">删除看板</b>
 
 **请求地址**：/api/v1/board/{uuid}
 
@@ -411,7 +437,7 @@ uuid：看板资源标识，如：d2db3d50ae0ab96f
         "data": {}
     }
 
-**功能说明**：看板详情
+**功能说明**：<b id="board_detail">看板详情</b>
 
 **请求地址**：/api/v1/board/{uuid}
 
@@ -426,17 +452,63 @@ uuid：看板资源标识，如：d2db3d50ae0ab96f
         "code": 0,
         "msg": "ok",
         "data": {
-            "name": "WEB前端开发",     # 看板名称
-            "desc": "主要技术：HTML",  # 看板描述
-            "thumbnail": ""           # 看板配图
+            "name": "WEB前端开发",          # 看板名称
+            "thumbnail": "",                # 看板配图
+            "description": "主要技术：HTML" # 看板描述
+        }
+    }
+
+**功能说明**：<b id="states_and_cards">看板列表及任务</b>
+
+**请求地址**：/api/v1/board/{uuid}/all
+
+**请求方式**：GET
+
+**请求参数**：
+
+| 参数名称 | 参数类型 | 是否必须 | 描述 |
+| :---: | :---: | :---: | :---: |
+| status | int | 否 | 任务状态 0-未完成 1-已完成 |
+| assigned_to | string | 否 | 指派人标识 - 显示指派人的所有任务</br>0 - 显示所有未指派的任务</br>1 - 显示所有有指派的任务</br>默认 - 显示所有任务 |
+
+**返回结果**：
+
+    # 操作成功
+    {
+        "code": 0,
+        "msg": "ok",
+        "data": {
+            "identity": "1",        # 当前登录人的看板身份，0-普通成员，1-创建者
+            "states": [
+                {
+                    "uuid": "e635082d1aa0dff9",
+                    "name": "进行中",
+                    "seqno": "1",
+                    "cards": [
+                        {
+                            "task_uuid": "5e7206a997cbda80",
+                            "task_name": "开发模块",
+                            "status": "1",
+                            "end_at": "2016-12-12",
+                            "card_type": "1",
+                            "priority": "1",
+                            "archived": "0",
+                            "is_expired": "0",
+                            "create_at": "2016-10-01",
+                            "assigned_nickname": "小王",
+                            "assigned_avatar": ""
+                        }
+                    ]
+                }
+            ]
         }
     }
 
 ---
 
-**功能说明**：看板成员列表
+**功能说明**：<b id="member_list">看板成员列表</b>
 
-**请求地址**：/api/v1/board/{uuid}/members
+**请求地址**：/api/v1/board/{board_uuid}/members
 
 **请求方式**：GET
 
@@ -461,18 +533,19 @@ uuid：看板资源标识，如：d2db3d50ae0ab96f
             },
             "members": [
                 {
-                    "username": "小明",  # 昵称
-                    "avatar": "http://xxx",        # 头像
-                    "unfinished_task_count": "5",  # 未完成任务数量
-                    "has_done_task_count": "12"    # 已完成任务数量
+                    "uuid": "9CeTIo0iycIuY0nB",     # 标识
+                    "username": "小明",             # 昵称
+                    "avatar": "http://xxx",         # 头像
+                    "unfinished_task_count": "5",   # 未完成任务数量
+                    "has_done_task_count": "12"     # 已完成任务数量
                 }
             ]
         }
     }
 
-**功能说明**：加入看板
+**功能说明**：<b id="join_the_board">加入看板</b>
 
-**请求地址**：/api/v1/board/{uuid}/member/{uuid}
+**请求地址**：/api/v1/board/{board_uuid}/member/{member_uuid}
 
 **请求方式**：POST
 
@@ -488,9 +561,9 @@ uuid：看板资源标识，如：d2db3d50ae0ab96f
     }
 `备注：用户主动加入看板`
 
-**功能说明**：退出看板
+**功能说明**：<b id="quit_the_board">退出看板</b>
 
-**请求地址**：/api/v1/board/{uuid}/member/{uuid}
+**请求地址**：/api/v1/board/{board_uuid}/member/{member_uuid}
 
 **请求方式**：DELETE
 
@@ -506,9 +579,9 @@ uuid：看板资源标识，如：d2db3d50ae0ab96f
     }
 `备注：用户主动退出看板`
 
-**功能说明**：邀请成员
+**功能说明**：<b id="invite_member">邀请成员</b>
 
-**请求地址**：/api/v1/board/{uuid}/member
+**请求地址**：/api/v1/board/{board_uuid}/member
 
 **请求方式**：POST
 
@@ -532,9 +605,9 @@ uuid：看板资源标识，如：d2db3d50ae0ab96f
     }
 `备注：手机号和电子邮箱方式，邀请后需发送短信和邮件通知对方`
 
-**功能说明**：成员详情
+**功能说明**：<b id="member_detail">成员详情</b>
 
-**请求地址**：/api/v1/board/member/{uuid}
+**请求地址**：/api/v1/board/member/{member_uuid}
 
 **请求方式**：GET
 
@@ -546,14 +619,14 @@ uuid：看板资源标识，如：d2db3d50ae0ab96f
         "code": 0,
         "msg": "ok",
         "data": {
-            "username": "小明",  # 昵称
-            "avatar": "http://xxx",        # 头像
-            "unfinished_task_count": "5",  # 未完成任务数量
-            "has_done_task_count": "12"    # 已完成任务数量
+            "username": "小明",             # 昵称
+            "avatar": "http://xxx",         # 头像
+            "unfinished_task_count": "5",   # 未完成任务数量
+            "has_done_task_count": "12"     # 已完成任务数量
         }
     }
 
-**功能说明**：移除成员
+**功能说明**：<b id="remove_member">移除成员</b>
 
 **请求地址**：/api/v1/board/{board_uuid}/member/{member_uuid}
 
@@ -563,7 +636,7 @@ uuid：看板资源标识，如：d2db3d50ae0ab96f
 
 | 参数名称 | 参数类型 | 是否必须 | 描述 |
 | :---: | :---: | :---: | :---: |
-| operator | int | 是 | 操作人员编号 |
+| operator | string | 是 | 操作人员标识 |
 
 **返回结果**：
 
@@ -575,7 +648,7 @@ uuid：看板资源标识，如：d2db3d50ae0ab96f
     }
 `备注：用户被某个操作人移出看板，移除成员后任务不删除，指派人全部变为未指派。`
 
-**功能说明**：同意/拒绝加入看板
+**功能说明**：<b id="agree_or_refuse">同意/拒绝加入看板</b>
 
 **请求地址**：/api/v1/board/{board_uuid}/member/{member_uuid}
 
@@ -596,7 +669,7 @@ uuid：看板资源标识，如：d2db3d50ae0ab96f
         "data": {}
     }
 
-**功能说明**：获取好友列表
+**功能说明**：<b id="friend_list">获取好友列表</b>
 
 **请求地址**：/api/v1/friends
 
@@ -606,7 +679,8 @@ uuid：看板资源标识，如：d2db3d50ae0ab96f
 
 | 参数名称 | 参数类型 | 是否必须 | 描述 |
 | :---: | :---: | :---: | :---: |
-| user_id | int | 是 | 用户编号 |
+| phone | string | 否 | 手机号 |
+| email | string | 否 | 电子邮件 |
 
 **返回结果**：
 
@@ -614,11 +688,18 @@ uuid：看板资源标识，如：d2db3d50ae0ab96f
         "code": 0,
         "msg": "ok",
         "data": {
+            "pagination": {
+                "current_page": "1",    # 当前页
+                "size_per_page": "50",  # 单页记录数
+                "page_count": "10",     # 总页数
+                "total_count": "500"    # 总记录数
+            },
             "friends": [
                 {
-                    "name": "小王",     # 好友名称
-                    "avatar": "",       # 好友头像
-                    "invite_status": "0" # 邀请状态（0-未邀请或对方拒绝邀请，1-已邀请，对方未做回复，2-已加入，对方同意加入看板）
+                    "uuid": "1fba3eefd09a439e", # 好友标识
+                    "name": "小王",             # 好友名称
+                    "avatar": "",               # 好友头像
+                    "invite_status": "0"        # 邀请状态（0-未邀请或对方拒绝邀请，1-已邀请，对方未做回复，2-已加入，对方同意加入看板）
                 }
             ]
         }
@@ -626,17 +707,13 @@ uuid：看板资源标识，如：d2db3d50ae0ab96f
 
 ---
 
-**功能说明**：看板列表
+**功能说明**：<b id="state_list">看板列表</b>
 
-**请求地址**：/api/v1/board/states?board_id={uuid}
+**请求地址**：/api/v1/board/{board_uuid}/states
 
 **请求方式**：GET
 
-**请求参数**：
-
-| 参数名称 | 参数类型 | 是否必须 | 描述 |
-| :---: | :---: | :---: | :---: |
-| board_id | string | 是 | 看板标识 |
+**请求参数**：无
 
 **返回结果**：
 
@@ -644,19 +721,25 @@ uuid：看板资源标识，如：d2db3d50ae0ab96f
         "code": 0,
         "msg": "ok",
         "data": {
+            "pagination": {
+                "current_page": "1",    # 当前页
+                "size_per_page": "50",  # 单页记录数
+                "page_count": "10",     # 总页数
+                "total_count": "500"    # 总记录数
+            },
             "states": [
                 {
-                    "uuid": "1e3aab9f5ad9cdd8",  # 列表标识
-                    "name": "待处理任务列表",     # 列表名称
-                    "seqno": "2"                 # 排列序号
+                    "uuid": "1e3aab9f5ad9cdd8", # 列表标识
+                    "name": "待处理任务列表",   # 列表名称
+                    "seqno": "2"                # 排列序号
                 }
             ]
         }
     }
 
-**功能说明**：新建看板列表
+**功能说明**：<b id="insert_state">新建看板列表</b>
 
-**请求地址**：/api/v1/board/state
+**请求地址**：/api/v1/board/{board_uuid}/state
 
 **请求方式**：POST
 
@@ -676,9 +759,9 @@ uuid：看板资源标识，如：d2db3d50ae0ab96f
         "data": {}
     }
 
-**功能说明**：编辑看板列表
+**功能说明**：<b id="update_state">编辑看板列表</b>
 
-**请求地址**：/api/v1/board/state/{uuid}
+**请求地址**：/api/v1/board/state/{state_uuid}
 
 **请求方式**：PUT
 
@@ -698,9 +781,9 @@ uuid：看板资源标识，如：d2db3d50ae0ab96f
         "data": {}
     }
 
-**功能说明**：删除看板列表
+**功能说明**：<b id="remove_state">删除看板列表</b>
 
-**请求地址**：/api/v1/board/state/{uuid}
+**请求地址**：/api/v1/board/state/{state_uuid}
 
 uuid：看板列表资源标识，如：1e3aab9f5ad9cdd8
 
@@ -719,7 +802,7 @@ uuid：看板列表资源标识，如：1e3aab9f5ad9cdd8
 
 ---
 
-**功能说明**：今日工作情况
+**功能说明**：<b id="daily_case">今日工作情况</b>
 
 **请求地址**：/api/v1/task/case
 
@@ -745,7 +828,7 @@ uuid：看板列表资源标识，如：1e3aab9f5ad9cdd8
         }
     }
 
-**功能说明**：任务列表
+**功能说明**：<b id="card_list">任务列表</b>
 
 **请求地址**：/api/v1/tasks
 
@@ -760,6 +843,7 @@ uuid：看板列表资源标识，如：1e3aab9f5ad9cdd8
 | assigned_to | int | 是 | 被指派的用户编号 |
 | board_id | int | 否 | 看板编号 |
 | state_id | int | 否 | 列表编号 |
+| archived | int | 否 | 是否归档 0-不归档，1-归档 |
 | priority | int | 否 | 优先级 |
 | status | int | 否 | 任务状态 0-未完成，1-已完成 |
 | order_by | string | 否 | assigned_at-指派日期，end_at-截至日期 |
@@ -779,25 +863,27 @@ uuid：看板列表资源标识，如：1e3aab9f5ad9cdd8
             },
             "tasks": [
                 {
-                    "task_uuid": "f189ef21564d434a",          # 任务标识
-                    "task_name": "放大手机话费",               # 任务名称
-                    "board_uuid": "f189ef21564d434a",  # 看板标识
-                    "board_name": "你就是我的天使",            # 看板名称
-                    "board_icon": "http://192.168.1.1/1.jpg"  # 看板图标
-                    "username": "小王",  # 用户昵称
-                    "avatar": "",  # 用户头像
-                    "end_at": "",  # 截至日期
-                    "card_type": "5",  # 任务类型
-                    "priority": "1",  # 优先级
-                    "status": "1"  # 已完成
+                    "task_uuid": "f189ef21564d434a",            # 任务标识
+                    "task_name": "放大手机话费",                # 任务名称
+                    "board_uuid": "f189ef21564d434a",           # 看板标识
+                    "board_name": "你就是我的天使",             # 看板名称
+                    "board_icon": "http://192.168.1.1/1.jpg",   # 看板图标
+                    "operator": "小王",                         # 操作人
+                    "avatar": "",                               # 操作人头像
+                    "end_at": "",                               # 截至日期
+                    "assign_at": "",                            # 委派日期
+                    "card_type": "5",                           # 任务类型
+                    "is_expired": "0",                          # 是否过期（0-未过期，1-已过期）
+                    "priority": "1",                            # 优先级
+                    "status": "1"                               # 已完成
                 }
             ]
         }
     }
 
-**功能说明**：新建任务
+**功能说明**：<b id="insert_card">新建任务</b>
 
-**请求地址**：/api/v1/board/state/card
+**请求地址**：/api/v1/board/state/{state_uuid}/card
 
 **请求方式**：POST
 
@@ -807,8 +893,8 @@ uuid：看板列表资源标识，如：1e3aab9f5ad9cdd8
 | :---: | :---: | :---: | :---: |
 | name | string | 是 | 任务名称 |
 | end_at | string | 是 | 截至日期，格式：2016-12-12 |
-| priority | int | 是 | 优先级 |
-| card_type | int | 是 | 任务类型 |
+| priority | int | 是 | 优先级</br>0 - 低</br>1 - 普通</br>2 - 紧张</br>3 - 严重|
+| card_type | int | 是 | 任务类型</br>0 - 需求</br>1 - 任务</br>2 - 缺陷|
 | assigned_to | int | 是 | 委派人 |
 | description | string | 是 | 任务描述 |
 
@@ -820,9 +906,9 @@ uuid：看板列表资源标识，如：1e3aab9f5ad9cdd8
         "data": {}
     }
 
-**功能说明**：编辑任务
+**功能说明**：<b id="update_card">编辑任务</b>
 
-**请求地址**：/api/v1/board/state/card/{uuid}
+**请求地址**：/api/v1/board/state/card/{card_uuid}
 
 **请求方式**：PUT
 
@@ -831,7 +917,9 @@ uuid：看板列表资源标识，如：1e3aab9f5ad9cdd8
 | 参数名称 | 参数类型 | 是否必须 | 描述 |
 | :---: | :---: | :---: | :---: |
 | name | string | 否 | 任务名称 |
+| status | int | 否 | 任务状态，0-未完成，1-已完成 |
 | end_at | string | 否 | 截至日期，格式：2016-12-12 |
+| archived | int | 否 | 是否归档 |
 | priority | int | 否 | 优先级 |
 | card_type | int | 否 | 任务类型 |
 | assigned_to | int | 否 | 委派人 |
@@ -845,9 +933,9 @@ uuid：看板列表资源标识，如：1e3aab9f5ad9cdd8
         "data": {}
     }
 
-**功能说明**：归档任务
+**功能说明**：<b id="bulk_archived">批量归档任务</b>
 
-**请求地址**：/api/v1/board/state/card/{uuid}
+**请求地址**：/api/v1/board/state/{state_uuid}/card?archived
 
 **请求方式**：PUT
 
@@ -856,6 +944,7 @@ uuid：看板列表资源标识，如：1e3aab9f5ad9cdd8
 | 参数名称 | 参数类型 | 是否必须 | 描述 |
 | :---: | :---: | :---: | :---: |
 | archived | int | 是 | 是否归档，0-恢复，1-归档 |
+| status | int | 否 | 任务状态，默认-所有状态，0-未完成，1-已完成 |
 
 **返回结果**：
 
@@ -865,11 +954,139 @@ uuid：看板列表资源标识，如：1e3aab9f5ad9cdd8
         "data": {}
     }
 
+**功能说明**：<b id="move_cards">移动列表任务</b>
+
+**请求地址**：/api/v1/board/state/{state_uuid}/card?move
+
+**请求方式**：PUT
+
+**请求参数**：
+
+| 参数名称 | 参数类型 | 是否必须 | 描述 |
+| :---: | :---: | :---: | :---: |
+| to_state | string | 是 | 目标列表标识 |
+
+**返回结果**：
+
+    {
+        "code": 0,
+        "msg": "ok",
+        "data": {}
+    }
+
+**功能说明**：<b id="card_detail">任务详情</b>
+
+**请求地址**：/api/v1/board/state/card/{card_uuid}
+
+**请求方式**：GET
+
+**请求参数**：无
+
+**返回结果**：
+
+    {
+	    "code": 0,
+        "msg": "ok",
+        "data": {
+            "uuid": "f8c991114b97cc08",
+            "name": "任务名称",
+            "seqno": 1,
+            "status": 1,
+            "archived": False,
+            "creator": {
+                "uuid": "f8c991114b97cc08",
+                "nickname": "昵称",
+                "avatar": "http://192.168.1.1/20151201.jpg",
+            },
+            "priority": 1,
+            "card_type": 1,
+            "description": "这是描述",
+            "assign_to": {
+                "uuid": "f8c991114b97cc08",
+                "nickname": "昵称",
+                "avatar": "http://192.168.1.1/20151201.jpg",
+            },
+            "end_at": "2016-12-12 16:47:15",
+            "update_at": "2016-12-12 16:47:15",
+            "create_at": "2016-12-12 16:47:15",
+            "state_id": "f8c991114b97cc08",
+        }
+    }
+
+**功能说明**：<b id="copy_card">复制任务</b>
+
+**请求地址**：/api/v1/board/state/card/{card_uuid}?copy
+
+**请求方式**：POST
+
+**请求参数**：
+
+| 参数名称 | 参数类型 | 是否必须 | 描述 |
+| :---: | :---: | :---: | :---: |
+| state_uuid | string | 是 | 看板列表标识 |
+| description | string | 否 | 任务描述 |
+| card_type | int | 是 | 任务类型 |
+| priority | int | 是 | 任务优先级 |
+| assign_to | string | 否 | 指派人标识 |
+| end_at | string | 否 | 截至日期 |
+| name | string | 是 | 任务名称 |
+
+**返回结果**：
+
+    {
+        "code": 0,
+        "msg": "ok",
+        "data": {
+        }
+    }
+
+**功能说明**：<b id="move_card">移动任务</b>
+
+**请求地址**：/api/v1/board/state/card/{card_uuid}?move
+
+**请求方式**：POST
+
+**请求参数**：
+
+| 参数名称 | 参数类型 | 是否必须 | 描述 |
+| :---: | :---: | :---: | :---: |
+| to_state_uuid | string | 是 | 目标看板列表标识 |
+
+**返回结果**：
+
+    {
+        "code": 0,
+        "msg": "ok",
+        "data": {
+        }
+    }
+
+**功能说明**：<b id="upload_card_attachment">上传任务附件</b>
+
+**请求地址**：/api/v1/board/state/card/{card_uuid}/upload
+
+**请求方式**：POST
+
+**请求参数**：
+
+| 参数名称 | 参数类型 | 是否必须 | 描述 |
+| :---: | :---: | :---: | :---: |
+| attachment | file | 是 | 任务附件 |
+
+**返回结果**：
+
+    {
+        "code": 0,
+        "msg": "ok",
+        "data": {
+        }
+    }
+
 ---
 
-**功能说明**：任务评论
+**功能说明**：<b id="comment_list">任务评论</b>
 
-**请求地址**：/api/v1/board/state/card/comments
+**请求地址**：/api/v1/board/state/card/{card_uuid}/comments
 
 **请求方式**：GET
 
@@ -877,7 +1094,6 @@ uuid：看板列表资源标识，如：1e3aab9f5ad9cdd8
 
 | 参数名称 | 参数类型 | 是否必须 | 描述 |
 | :---: | :---: | :---: | :---: |
-| card_id | string | 是 | 任务标识UUID |
 | page_no | int | 否 | 页数，默认第一页 |
 | page_size | int | 否 | 单页尺寸，默认50条 |
 
@@ -898,15 +1114,16 @@ uuid：看板列表资源标识，如：1e3aab9f5ad9cdd8
                     "uuid": "f8c991114b97cc08",    # 评论标识
                     "content": "",                 # 评论内容
                     "username": "张建",            # 评论人昵称
+                    "avatar": "",                  # 评论人头像
                     "create_at": "2016-12-12 16:47:15"    # 评论时间
                 }
             ]
         }
     }
 
-**功能说明**：新建评论
+**功能说明**：<b id="insert_comment">新建评论</b>
 
-**请求地址**：/api/v1/board/state/card/comment
+**请求地址**：/api/v1/board/state/card/{card_uuid}/comment
 
 **请求方式**：POST
 
@@ -914,8 +1131,6 @@ uuid：看板列表资源标识，如：1e3aab9f5ad9cdd8
 
 | 参数名称 | 参数类型 | 是否必须 | 描述 |
 | :---: | :---: | :---: | :---: |
-| user_id | int | 是 | 评论人编号 |
-| card_id | int | 是 | 所属任务编号 |
 | content | string | 是 | 评论内容 |
 
 **返回响应**：
@@ -928,7 +1143,7 @@ uuid：看板列表资源标识，如：1e3aab9f5ad9cdd8
 
 ---
 
-**功能说明**：看板动态
+**功能说明**：<b id="board_actions">看板动态</b>
 
 **请求地址**：/api/v1/board/{board_uuid}/actions
 
@@ -955,8 +1170,8 @@ uuid：看板列表资源标识，如：1e3aab9f5ad9cdd8
             },
             "actions": [
                 {
-                    "username": "大忽悠",  # 用户昵称
-                    "avatar": "",  # 用户头像
+                    "username": "大忽悠",               # 用户昵称
+                    "avatar": "",                       # 用户头像
                     "description": "",
                     "create_at": "2016-12-12 18:02:34"
                 }
@@ -965,7 +1180,7 @@ uuid：看板列表资源标识，如：1e3aab9f5ad9cdd8
     }
 `备注：按照时间倒序排列，默认显示20条，点击【加载更多】，显示更早得20条动态。`
 
-**功能说明**：任务动态
+**功能说明**：<b id="card_actions">任务动态</b>
 
 **请求地址**：/api/v1/card/{card_uuid}/actions
 
@@ -992,8 +1207,8 @@ uuid：看板列表资源标识，如：1e3aab9f5ad9cdd8
             },
             "actions": [
                 {
-                    "username": "大忽悠",  # 用户昵称
-                    "avatar": "",  # 用户头像
+                    "username": "大忽悠",               # 用户昵称
+                    "avatar": "",                       # 用户头像
                     "description": "",
                     "create_at": "2016-12-12 18:02:34"
                 }
@@ -1035,14 +1250,14 @@ uuid：看板列表资源标识，如：1e3aab9f5ad9cdd8
             },
             "records": [
                 {
-                    "uuid": "f8c991114b97cc08",     # 工作日志标识
-                    "screenshot": "http://192.168.1.1/20151201.jpg",  # 截屏图片地址
-                    "description": "",    # 工作日志描述
-                    "username": "大忽悠",  # 用户昵称
-                    "avatar": "",         # 用户头像
-                    "create_at": "2016-12-12 18:02:34",   # 日志创建时间
-                    "click_count": "2124",  # 鼠标单击次数
-                    "typing_count": "215"   # 键盘击打次数
+                    "uuid": "f8c991114b97cc08",                         # 工作日志标识
+                    "screenshot": "http://192.168.1.1/20151201.jpg",    # 截屏图片地址
+                    "description": "",                                  # 工作日志描述
+                    "username": "大忽悠",                               # 用户昵称
+                    "avatar": "",                                       # 用户头像
+                    "create_at": "2016-12-12 18:02:34",                 # 日志创建时间
+                    "click_count": "2124",                              # 鼠标单击次数
+                    "typing_count": "215"                               # 键盘击打次数
                 }
             ],
             "duration": "5小时20分钟"  # 工作日志时长
@@ -1103,14 +1318,106 @@ uuid：看板列表资源标识，如：1e3aab9f5ad9cdd8
         "code": 0,
         "msg": "ok",
         "data": {
-            "uuid": "f8c991114b97cc08",     # 工作日志标识
-            "screenshot": "http://192.168.1.1/20151201.jpg",  # 截屏图片地址
-            "description": "",    # 工作日志描述
-            "username": "大忽悠",  # 用户昵称
-            "avatar": "",         # 用户头像
-            "create_at": "2016-12-12 18:02:34",   # 日志创建时间
-            "click_count": "2124",  # 鼠标单击次数
-            "typing_count": "215",  # 键盘击打次数
-            "board_name": "你就是我的天使"  # 所属看板名称
+            "uuid": "f8c991114b97cc08",                         # 工作日志标识
+            "screenshot": "http://192.168.1.1/20151201.jpg",    # 截屏图片地址
+            "description": "",                                  # 工作日志描述
+            "username": "大忽悠",                               # 用户昵称
+            "avatar": "",                                       # 用户头像
+            "create_at": "2016-12-12 18:02:34",                 # 日志创建时间
+            "click_count": "2124",                              # 鼠标单击次数
+            "typing_count": "215",                              # 键盘击打次数
+            "board_name": "你就是我的天使"                      # 所属看板名称
         }
     }
+
+---
+
+**功能说明**：<b id="notify_list">通知列表</b>
+
+**请求地址**：/api/v1/notifications
+
+**请求方式**：GET
+
+**请求参数**：
+
+| 参数名称 | 参数类型 | 是否必须 | 描述 |
+| :---: | :---: | :---: | :---: |
+| page_no | int | 否 | 页数，默认第一页 |
+| page_size | int | 否 | 单页尺寸，默认50条 |
+
+**返回结果**：
+
+    {
+        "code": 0,
+        "msg": "ok",
+        "data": {
+            "pagination": {
+                "current_page": "1",    # 当前页
+                "size_per_page": "50",  # 单页记录数
+                "page_count": "10",     # 总页数
+                "total_count": "500"    # 总记录数
+            },
+            "notifications": [
+                {
+                    "uuid": "066a610d4628d831",         # 通知标识
+                    "type": 2,                          # 通知类型
+                    "title": "您被移出看板[原看板名]",  # 通知标题
+                    "create_at": "2016-01-03 13:47:13"  # 通知时间
+                }
+            ]
+        }
+    }
+
+**功能说明**：<b id="notify_detail">通知详情</b>
+
+**请求地址**：/api/v1/notification/{uuid}
+
+**请求方式**：GET
+
+**请求参数**：无
+
+**返回结果**：
+
+    {
+        "code": 0,
+        "msg": "ok",
+        "data": {
+            "uuid": "066a610d4628d831",         # 通知编号
+            "type": 2,                          # 通知类型
+            "title": "您被移出看板[原看板名]",  # 通知标题
+            "create_at": "2016-01-03 13:47:13"  # 通知时间
+        }
+    }
+
+---
+
+**功能说明**：<b id="upload">附件上传</b>
+
+**请求地址**：/api/v1/attachment/upload?clipping
+
+**请求方式**：POST
+
+**请求参数**：
+
+| 参数名称 | 参数类型 | 是否必须 | 描述 |
+| :---: | :---: | :---: | :---: |
+| icon | file | 是 | 文件句柄 |
+| x | int | 是 | x坐标 |
+| y | int | 是 | y坐标 |
+| w | int | 是 | 宽度 |
+| h | int | 是 | 高度 |
+| bound_x | int | 否 | x边界 |
+| bound_y | int | 否 | y边界 |
+| file_type | string | 是 | 文件类型：看板配图-board_icon |
+
+**返回结果**：
+
+    {
+        "code": 0,
+        "msg": "ok",
+        "data": {
+            "id": "1",      # 附件编号
+            "path": ""      # 附件路径
+        }
+    }
+

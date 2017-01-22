@@ -57,7 +57,9 @@ status列表状态定义：
 | description | 任务描述 | text | |
 | attachment_id | 附件编号 | int | |
 | assign_to | 指派人 | int | |
+| operator | 操作人 | int | |
 | end_at | 截至日期 | int | 截至日期 |
+| assign_at | 委派时间 | int | 委派时间 |
 | update_at | 更新时间 | int | 更新时间 |
 | create_at | 创建时间 | int | 创建时间 |
 ```
@@ -77,6 +79,16 @@ card_type任务类型定义：
 2 - 缺陷
 ```
 
+**Card Attachment - 任务附件** `表名：t_card_attachment`
+
+| 字段名称 | 字段描述 | 字段类型 | 备注 |
+| :---: | :---: | :---: | :---: |
+| id | 编号 | int | PK自增 |
+| card_id | 任务编号 | int | FK任务编号 |
+| attachment_id | 附件编号 | int | FK附件编号 |
+| create_at | 创建时间 | int | NOT NULL |
+`备注：任务与附近为多对多关系，一个任务可以包含多个附件，一个附件可以属于多个任务。`
+
 **Board Member - 看板成员** `表名：t_board_member`
 
 | 字段名称 | 字段描述 | 字段类型 | 备注 |
@@ -84,6 +96,7 @@ card_type任务类型定义：
 | id | 编号 | int | PK自增 |
 | user_id | 成员编号 | int | 主站用户编号 |
 | board_id | 看板编号 | int | FK看板编号 |
+| create_at | 创建时间 | int | NOT NULL |
 `备注：成员与看板为多对多关系，一个成员可以加入多个看板，一个看板包含多个成员。`
 
 **Invite Record - 用户邀请记录** `表名：t_invite_record`
@@ -136,6 +149,7 @@ card_type任务类型定义：
 | 字段名称 | 字段描述 | 字段类型 | 备注 |
 | :---: | :---: | :---: | :---: |
 | id | 编号 | int | PK自增 |
+| uuid | 通知标识 | char(64) | 通知标识 |
 | title | 通知标题 | char(512) | NOT NULL |
 | status | 通知状态 | int | |
 | notify_to | 通知人 | int | |
@@ -211,4 +225,6 @@ card_type任务类型定义：
 | :---: | :---: | :---: | :---: |
 | id | 编号 | int | PK自增 |
 | name | 名称 | char(64) | |
+| notify_title | 通知标题 | char(128) | 通知标题 |
+| action_title | 动态标题 | char(128) | 动态标题 |
 | create_at | 创建时间 | int | 创建时间 |
