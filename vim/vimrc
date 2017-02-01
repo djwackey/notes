@@ -26,8 +26,6 @@ Plugin 'VundleVim/Vundle.vim'
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 
-" Python and PHP Debugger
-" Plugin 'fisadev/vim-debug.vim'
 " Better file browser
 Plugin 'scrooloose/nerdtree'
 " Code commenter
@@ -99,6 +97,21 @@ Plugin 'matchit.zip'
 Plugin 'Wombat'
 " Yank history navigation
 Plugin 'YankRing.vim'
+" Markdown
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+" Multiple cursor
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'Yggdroot/indentLine'
+" html5高亮
+Plugin 'othree/html5.vim'
+
+" JS高亮及HTML/JS混排缩进改善
+Plugin 'pangloss/vim-javascript'
+" Powerline
+Plugin 'Lokaltog/vim-powerline'
+" Golang
+Plugin 'fatih/vim-go'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -149,6 +162,17 @@ syntax on
 
 " show line numbers
 set nu
+
+set mouse=a
+
+set ruler
+
+set laststatus=2
+
+" Highlight current line
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
+set cursorline cursorcolumn
 
 " tab navigation mappings
 map tn :tabn<CR>
@@ -213,13 +237,6 @@ set scrolloff=3
 " (complete only the common part, list the options that match)
 set wildmode=list:longest
 
-" Tagbar ----------------------------- 
-
-" toggle tagbar display
-map <F4> :TagbarToggle<CR>
-" autofocus on tagbar open
-let g:tagbar_autofocus = 1
-
 " NERDTree ----------------------------- 
 
 " toggle nerdtree display
@@ -228,11 +245,34 @@ map <F3> :NERDTreeToggle<CR>
 nmap ,t :NERDTreeFind<CR>
 " don;t show these file types
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
-" auto show nerdtree, when opening file
+let NERDTreeHighlightCursorline=1
+
 autocmd vimenter * NERDTree
-" focus cursor to right region.(Ctrl + w + w)
 wincmd w
 autocmd VimEnter * wincmd w
+
+" 在nerdtree窗口中禁用BD命令。
+autocmd FileType nerdtree cnoreabbrev <buffer> bd <nop>
+" 当关闭得只剩下nerdtree一个窗口时，自动关闭vim
+autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+function! s:CloseIfOnlyNerdTreeLeft()
+    if exists("t:NERDTreeBufName")
+        if bufwinnr(t:NERDTreeBufName) != -1
+            if winnr("$") == 1
+                q
+            endif
+        endif
+    endif
+endfunction
+
+" Tagbar ----------------------------- 
+
+" toggle tagbar display
+map <F4> :TagbarToggle<CR>
+" autofocus on tagbar open
+let g:tagbar_autofocus = 1
+call tagbar#autoopen()
+
 
 " Airline ------------------------------
 
@@ -265,12 +305,14 @@ let g:syntastic_enable_signs = 0
 " custom icons (enable them if you use a patched font, and enable the
 " previous 
 " " setting)
-"let g:syntastic_error_symbol = '✗'
-"let g:syntastic_warning_symbol = '⚠'
-"let g:syntastic_style_error_symbol = '✗'
-"let g:syntastic_style_warning_symbol = '⚠'
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_style_warning_symbol = '⚠'
 
 " Python-mode ------------------------------
+
+let g:pymode = 1
 
 " don't use linter, we use syntastic for that
 let g:pymode_lint_on_write = 0
@@ -278,11 +320,11 @@ let g:pymode_lint_signs = 0
 " don't fold python code on open
 let g:pymode_folding = 0
 " don't load rope by default. Change to 1 to use rope
-let g:pymode_rope = 0
+let g:pymode_rope = 1
 " open definitions on same window, and custom mappings for definitions and
 " occurrences
-let g:pymode_rope_goto_definition_bind = ',d'
-let g:pymode_rope_goto_definition_cmd = 'e'
+let g:pymode_rope_goto_definition_bind = '<C-]>'
+let g:pymode_rope_goto_definition_cmd = 'new'
 nmap ,D :tab split<CR>:PymodePython rope.goto()<CR>
 nmap ,o :RopeFindOccurrences<CR>
 
@@ -317,3 +359,27 @@ let g:tabman_focus  = 'tf'
 
 " Fix to let ESC work as espected with Autoclose plugin
 let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
+
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_toc_autofit = 1
+
+let g:multi_cursor_use_default_mapping=0
+
+" Default mapping
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+"let g:go_highlight_functions = 1
+"let g:go_highlight_methods = 1
+"let g:go_highlight_fields = 1
+"let g:go_highlight_types = 1
+"let g:go_highlight_operators = 1
+"let g:go_highlight_build_constraints = 1
+"
+"let g:go_fmt_command = "goimports"
+"
+"let g:go_fmt_fail_silently = 1
+"
+"let g:go_fmt_autosave = 0
