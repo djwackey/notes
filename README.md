@@ -6,9 +6,11 @@
     * [列表反转](https://github.com/djwackey/notes/blob/master/algorithm/list_reverse.py)
 * C/C++
 * Docker
+    * [学习笔记](https://github.com/djwackey/notes/blob/master/docker/note.md)
 * Golang
     * [源码编译](https://github.com/djwackey/notes/blob/master/golang/golang.md)
 * MySQL
+    * [基础配置文件](https://github.com/djwackey/notes/blob/master/mysql/my.cnf)
 * Python
 * Shell
 * Ubuntu
