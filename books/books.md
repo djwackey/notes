@@ -14,6 +14,7 @@ Docker从入门到实践 | 杨保华 戴王剑 曹亚仑 |  2016-02-10
 码农·数据技能（第24期）| 图灵社区 | 2016-07-20 |
 Elasticsearch服务器开发（第2版）| Rafał Kuć, Marek Rogoziński | 2017-01-12 |
 高性能MySQL(第3版) | Baron Schwartz, Peter Zaitsev, Vadim Tkachenko | 2017-08-22 |
+Hadoop海量数据处理 | 范东来 | 2017-09-25 |
 
 
 ### 评书类
