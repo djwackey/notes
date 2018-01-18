@@ -16,6 +16,7 @@ Elasticsearch服务器开发（第2版）| Rafał Kuć, Marek Rogoziński | 2017
 高性能MySQL(第3版) | Baron Schwartz, Peter Zaitsev, Vadim Tkachenko | 2017-08-22 |
 Hadoop海量数据处理 | 范东来 | 2017-09-25 |
 Redis实战 | （美）卡尔森 | 2017-11-30 |
+Spark快速大数据分析 | Holden Karau, Andy Konwinski, Patrick Wendell, Matei Zaharia | 2018-01-18 |
 
 
 ### 评书类
