@@ -15,11 +15,16 @@
 * Shell
 * Ubuntu
 * Vim
+    * [我的配置文件](https://github.com/djwackey/notes/blob/master/vim/vimrc)
+    * [pymode使用手册](https://github.com/djwackey/notes/blob/master/vim/plugins/pymode.md)
 * 游戏支付
     * [Google Play支付订单验证](https://github.com/djwackey/notes/blob/master/gamepay/GooglePlayInappBilling.md)
     * [游戏支付代码示例](https://github.com/djwackey/gamepay)
 * RESTful示例
     * [看板设计](https://github.com/djwackey/notes/tree/master/kanban)
+* 任务看板
+    * [开发接口设计文档](https://github.com/djwackey/notes/blob/master/kanban/API.md)
+    * [数据模型设计文档](https://github.com/djwackey/notes/blob/master/kanban/models.md)
 * 问题解决
 * 网址收集
 * 修身养性
