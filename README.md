@@ -1,7 +1,6 @@
 # 黑泡泡选手的学习笔记(技术博客)
 
 ### 目录：
---
 * Algorithm
     * [列表反转](https://github.com/djwackey/notes/blob/master/algorithm/list_reverse.py)
 * C/C++
