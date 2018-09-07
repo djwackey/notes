@@ -12,6 +12,7 @@
 * MySQL
     * [基础配置文件](https://github.com/djwackey/notes/blob/master/mysql/my.cnf)
 * Python
+    * [Google Style Guide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md)
 * Shell
 * Ubuntu
 * Vim
