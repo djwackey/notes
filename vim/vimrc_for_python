@@ -1,0 +1,351 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Better file browser
+Plugin 'scrooloose/nerdtree'
+" Code commenter
+Plugin 'scrooloose/nerdcommenter'
+" Class/module browser
+Plugin 'majutsushi/tagbar'
+" Code and files fuzzy finder
+Plugin 'kien/ctrlp.vim'
+" Extension to ctrlp, for fuzzy command finder
+Plugin 'fisadev/vim-ctrlp-cmdpalette'
+" Git integration
+Plugin 'motemen/git-vim'
+" Tab list panel
+Plugin 'kien/tabman.vim'
+" Airline
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+" Terminal Vim with 256 colors colorscheme
+Plugin 'fisadev/fisa-vim-colorscheme'
+" Consoles as buffers
+Plugin 'rosenfeld/conque-term'
+" Pending tasks list
+Plugin 'fisadev/FixedTaskList.vim'
+" Surround
+Plugin 'tpope/vim-surround'
+" Autoclose
+Plugin 'Townk/vim-autoclose'
+" Indent text object
+Plugin 'michaeljsmith/vim-indent-object'
+" Python mode (indentation, doc, refactor, lints, code checking, motion and
+" operators, highlighting, run and ipdb breakpoints)
+Plugin 'klen/python-mode'
+" Better autocompletion
+Plugin 'Shougo/neocomplcache.vim'
+" Snippets manager (SnipMate), dependencies, and snippets repo
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'honza/vim-snippets'
+Plugin 'garbas/vim-snipmate'
+" Git/mercurial/others diff icons on the side of the file lines
+Plugin 'mhinz/vim-signify'
+" Automatically sort python imports
+Plugin 'fisadev/vim-isort'
+" Drag visual blocks arround
+Plugin 'fisadev/dragvisuals.vim'
+" Window chooser
+Plugin 't9md/vim-choosewin'
+" Python and other languages code checker
+Plugin 'scrooloose/syntastic'
+" Paint css colors with the real color
+Plugin 'lilydjwg/colorizer'
+
+" Plugins from vim-scripts repos:
+
+" Search results counter
+Plugin 'IndexedSearch'
+" XML/HTML tags navigation
+Plugin 'matchit.zip'
+" Yank history navigation
+Plugin 'YankRing.vim'
+" Multiple cursor
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'Yggdroot/indentLine'
+
+" Powerline
+Plugin 'Lokaltog/vim-powerline'
+" Golang
+Plugin 'fatih/vim-go'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+
+filetype plugin indent on    " required
+
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just
+" :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to
+" auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+" You can edit them as you wish
+
+" allow plugins by file type (required for plugins!)
+filetype plugin on
+filetype indent on
+
+" tabs and spaces handling
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+" always show status bar
+set ls=2
+
+" incremental search
+set incsearch
+" highlighted search results
+set hlsearch
+
+" syntax highlight on
+syntax on
+
+" show line numbers
+set nu
+
+set ruler
+set mouse=a
+set viminfo='1000,<800
+set laststatus=2
+
+" Highlight current line
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
+set cursorline cursorcolumn
+
+" tab navigation mappings
+map tn :tabn<CR>
+map tp :tabp<CR>
+map tm :tabm 
+map tt :tabnew 
+map ts :tab split<CR>
+map <C-S-Right> :tabn<CR>
+imap <C-S-Right> <ESC>:tabn<CR>
+map <C-S-Left> :tabp<CR>
+imap <C-S-Left> <ESC>:tabp<CR>
+
+" navigate windows with meta+arrows
+map <M-Right> <c-w>l
+map <M-Left> <c-w>h
+map <M-Up> <c-w>k
+map <M-Down> <c-w>j
+imap <M-Right> <ESC><c-w>l
+imap <M-Left> <ESC><c-w>h
+imap <M-Up> <ESC><c-w>k
+imap <M-Down> <ESC><c-w>j
+
+" old autocomplete keyboard shortcut
+imap <C-J> <C-X><C-O>
+
+" Comment this line to enable autocompletion preview window
+" (displays documentation related to the selected completion option)
+" Disabled by default because preview makes the window flicker
+set completeopt-=preview
+
+" save as sudo
+ca w!! w !sudo tee "%"
+
+" simple recursive grep
+" both recursive grep commands with internal or external (fast) grep
+command! -nargs=1 RecurGrep lvimgrep /<args>/gj ./**/*.* | lopen | set nowrap
+command! -nargs=1 RecurGrepFast silent exec 'lgrep! <q-args> ./**/*.*' | lopen
+" mappings to call them
+nmap ,R :RecurGrep 
+nmap ,r :RecurGrepFast 
+" mappings to call them with the default word as search text
+nmap ,wR :RecurGrep <cword><CR>
+nmap ,wr :RecurGrepFast <cword><CR>
+
+" use 256 colors when possible
+if (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256') || has('nvim')
+   let &t_Co = 256
+   colorscheme fisa
+else
+   colorscheme elflord
+endif
+
+" colors for gvim
+if has('gui_running')
+   colorscheme wombat
+endif
+
+" when scrolling, keep cursor 3 lines away from screen border
+set scrolloff=3
+
+" autocompletion of files and commands behaves like shell
+" (complete only the common part, list the options that match)
+set wildmode=list:longest
+
+" NERDTree ----------------------------- 
+
+" toggle nerdtree display
+map <F3> :NERDTreeToggle<CR>
+" open nerdtree with the current file selected
+nmap ,t :NERDTreeFind<CR>
+" don;t show these file types
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
+let NERDTreeHighlightCursorline=1
+
+autocmd vimenter * NERDTree
+wincmd w
+autocmd VimEnter * wincmd w
+
+" 在nerdtree窗口中禁用BD命令。
+autocmd FileType nerdtree cnoreabbrev <buffer> bd <nop>
+" 当关闭得只剩下nerdtree一个窗口时，自动关闭vim
+autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+function! s:CloseIfOnlyNerdTreeLeft()
+    if exists("t:NERDTreeBufName")
+        if bufwinnr(t:NERDTreeBufName) != -1
+            if winnr("$") == 1
+                q
+            endif
+        endif
+    endif
+endfunction
+
+" Tagbar ----------------------------- 
+
+" toggle tagbar display
+map <F4> :TagbarToggle<CR>
+" autofocus on tagbar open
+let g:tagbar_autofocus = 1
+call tagbar#autoopen()
+
+
+" Airline ------------------------------
+
+let g:airline_powerline_fonts = 0
+let g:airline_theme = 'bubblegum'
+let g:airline#extensions#whitespace#enabled = 0
+
+" to use fancy symbols for airline, uncomment the following lines and use a
+" patched font (more info on the README.rst)
+"if !exists('g:airline_symbols')
+"   let g:airline_symbols = {}
+"endif
+"let g:airline_left_sep = '⮀'
+"let g:airline_left_alt_sep = '⮁'
+"let g:airline_right_sep = '⮂'
+"let g:airline_right_alt_sep = '⮃'
+"let g:airline_symbols.branch = '⭠'
+"let g:airline_symbols.readonly = '⭤'
+"let g:airline_symbols.linenr = '⭡'
+
+" Syntastic ------------------------------
+
+" show list of errors and warnings on the current file
+nmap <leader>e :Errors<CR>
+" check also when just opened the file
+let g:syntastic_check_on_open = 1
+" don't put icons on the sign column (it hides the vcs status icons of
+" signify)
+let g:syntastic_enable_signs = 0
+" custom icons (enable them if you use a patched font, and enable the
+" previous 
+" " setting)
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_style_warning_symbol = '⚠'
+
+" Python-mode ------------------------------
+
+let g:pymode = 1
+
+" don't use linter, we use syntastic for that
+let g:pymode_lint_on_write = 0
+let g:pymode_lint_signs = 0
+" don't fold python code on open
+let g:pymode_folding = 0
+" don't load rope by default. Change to 1 to use rope
+let g:pymode_rope = 1
+" open definitions on same window, and custom mappings for definitions and
+" occurrences
+let g:pymode_rope_goto_definition_bind = '<C-]>'
+let g:pymode_rope_goto_definition_cmd = 'new'
+nmap ,D :tab split<CR>:PymodePython rope.goto()<CR>
+nmap ,o :RopeFindOccurrences<CR>
+
+let g:pymode_options_max_line_length = 100
+
+" NeoComplCache ------------------------------
+
+" most of them not documented because I'm not sure how they work
+" (docs aren't good, had to do a lot of trial and error to make 
+" it play nice)
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_ignore_case = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_auto_select = 1
+let g:neocomplcache_enable_fuzzy_completion = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_fuzzy_completion_start_length = 1
+let g:neocomplcache_auto_completion_start_length = 1
+let g:neocomplcache_manual_completion_start_length = 1
+let g:neocomplcache_min_keyword_length = 1
+let g:neocomplcache_min_syntax_length = 1
+" complete with workds from any opened file
+let g:neocomplcache_same_filetype_lists = {}
+let g:neocomplcache_same_filetype_lists._ = '_'
+
+" TabMan ------------------------------
+
+" mappings to toggle display, and to focus on it
+let g:tabman_toggle = 'tl'
+let g:tabman_focus  = 'tf'
+
+" Autoclose ------------------------------
+
+" Fix to let ESC work as espected with Autoclose plugin
+let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
+
+let g:multi_cursor_use_default_mapping=0
+
+" Default mapping
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+"let g:go_highlight_functions = 1
+"let g:go_highlight_methods = 1
+"let g:go_highlight_fields = 1
+"let g:go_highlight_types = 1
+"let g:go_highlight_operators = 1
+"let g:go_highlight_build_constraints = 1
+"
+"let g:go_fmt_command = "goimports"
+"
+"let g:go_fmt_fail_silently = 1
+"
+"let g:go_fmt_autosave = 0
+let g:go_version_warning = 0
+
+set backspace=indent,eol,start
+
+if has("autocmd")
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
