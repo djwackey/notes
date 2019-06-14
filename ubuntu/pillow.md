@@ -2,7 +2,9 @@
 http://pillow-cn.readthedocs.org/zh_CN/latest/index.html
 
 ## 简单安装
-<pre>$ easy_install Pillow</pre>
+```shell
+$ easy_install Pillow
+```
 
 ## 外部库
 <p>Pillow 的许多功能需要外部库的支持:</p>
@@ -33,13 +35,13 @@ http://pillow-cn.readthedocs.org/zh_CN/latest/index.html
 </ul>
 
  在 Ubuntu 10.04 LTS 安装依赖包:
-<pre>
+```shell
  $ sudo apt-get install libtiff4-dev libjpeg62-dev zlib1g-dev \
      libfreetype6-dev tcl8.5-dev tk8.5-dev python-tk
- </pre>
+ ```
 
  在 Ubuntu 12.04 LTS 或者 Raspian Wheezy 7.0 安装依赖包:
-<pre>
+```shell
  $ sudo apt-get install libtiff4-dev libjpeg8-dev zlib1g-dev \
      libfreetype6-dev liblcms2-dev libwebp-dev tcl8.5-dev tk8.5-dev python-tk
- </pre>
+```

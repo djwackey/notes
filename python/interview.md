@@ -1,7 +1,8 @@
 https://www.toptal.com/python/interview-questions
 
 1.写出以下表达式的结果：
-```
+
+```python
 1.
 from __future__ import unicode_literals, division
 
@@ -32,7 +33,7 @@ from __future__ import unicode_literals, division
 ```
 
 2.以下的代码的输入将是什么？
-```
+```python
 class Parent(object):
     x = 1
 
@@ -55,7 +56,7 @@ print Parent.x, Child1.x, Child2.x
 ```
 
 3.以下的代码的输出将是什么？
-```
+```python
 def multipliers():
     return [lambda x : i * x for i in range(4)]
 
@@ -69,13 +70,13 @@ def multipliers():
 ```
 
 4.Python里面search()和match()的区别？
-```
+```python
 match()函数只检测RE是不是在string的开始位置匹配，也就是说match()只有在0位置匹配成功的话，才有返回，如果不是开始位置匹配成功的话，match()就返回none
 search()会扫描整个string查找匹配项
 ```
 
 5.Python如何实现单例模式？
-```
+```python
 class Singleton(type):
     def __init__(cls, name, bases, dict):
         super(Singleton, cls).__init__(name, bases, dict)
@@ -94,7 +95,7 @@ two = MyClass()
 ```
 
 6.实现一个带参数的函数装饰器deco
-```
+```python
 def dec(debug):
     def _dec(func):
         print("debug mode:", debug)
@@ -109,7 +110,7 @@ def func(a, b):
 ```
 
 7.以下代码将输出什么？
-```
+```python
 l = ['a', 'b', 'c', 'd', 'e']
 print l[10:]
 
@@ -118,7 +119,7 @@ print l[10:]
 ```
 
 8.以下代码的输出将是什么？说出你的答案并解释？
-```
+```python
 def extendList(val, list=[]):
     list.append(val)
     return list

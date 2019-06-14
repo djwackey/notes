@@ -1,5 +1,5 @@
 安装pyenv
-```
+```shell
 # pyenv是一个Python版本管理工具
 $ git clone git://github.com/yyuu/pyenv.git ~/.pyenv
 $ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc

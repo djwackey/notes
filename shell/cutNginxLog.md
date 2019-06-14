@@ -4,8 +4,8 @@
 2. 删除一周之前的所有日志文件
 
 ### 代码实现 ###
-<pre>
-<code>#! /bin/sh
+```shell
+#! /bin/sh
 
 # get Nginx logs dictionary
 nginx_log=$1
@@ -21,8 +21,11 @@ function cut_nginx_log()
 }
 
 cut_nginx_log
-</code></pre>
+```
 
 ### 脚本执行 ###
 - 使用crontab制作定时任务
-- 执行脚本：<pre><code>sh cutnginxlog.sh /usr/local/nginx/logs/access.log</code></pre>
+- 执行脚本：
+```shell
+sh cutnginxlog.sh /usr/local/nginx/logs/access.log
+```

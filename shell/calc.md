@@ -1,2 +1,4 @@
 计算文件第三列数值总数
+```shell
 > awk '{x += $3} END {print x}' [file_name]
+```
