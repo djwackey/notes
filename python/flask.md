@@ -36,8 +36,8 @@
 | 文件/目录 | 描述 |
 | :-----: | :-----: |
 | json | json操作 |
-| \__init__.py | FLASK模块包的标识文件，包含FLASK框架的版本号及导出的模块等 |
-| \__main__.py | 入口 |
+| \___init___.py | FLASK模块包的标识文件，包含FLASK框架的版本号及导出的模块等 |
+| \___main\___.py | 入口 |
 | _compat.py | 兼容 |
 | blueprints.py | 蓝图 |
 | cli.py | 命令行 |
