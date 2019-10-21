@@ -67,15 +67,14 @@ def hello_world():
 ### 主要类介绍
 
 一.Flask类
-成员变量: request_class
 
+成员变量: request_class
     类型: Request
     导入: from .wrappers import Request
     父类: from werkzeug.wrappers import Request
 说明: 请求类
 
 成员变量: response_class
-
     类型: Response
     导入: from .wrappers import Response
     父类: from werkzeug.wrappers import Response
@@ -93,6 +92,7 @@ def hello_world():
 
 
 成员函数: route
+
 参数:
     rule - URL规则字符串
     option - 可选参数
