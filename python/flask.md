@@ -7,7 +7,6 @@
 
 ### 文件目录结构
 
-<code>
 .
 ├── json
 |   ├── __init__.py
@@ -30,7 +29,6 @@
 ├── testing.py
 ├── views.py
 └── wrappers.py
-</code>
 
 ### 文件功能描述
 
