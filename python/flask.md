@@ -68,23 +68,27 @@ def hello_world():
 
 一.Flask类
 成员变量: request_class
+
     类型: Request
     导入: from .wrappers import Request
     父类: from werkzeug.wrappers import Request
 说明: 请求类
 
 成员变量: response_class
+
     类型: Response
     导入: from .wrappers import Response
     父类: from werkzeug.wrappers import Response
 说明: 响应类
 
 成员变量: jinja_environment
+
     类型: Environment
     导入: from .templating import Environment
 说明: Jinja环境类
 
 成员变量: app_ctx_globals_class
+
     类型: _AppCtxGlobals
 
 
@@ -96,6 +100,7 @@ def hello_world():
 说明: 装饰器函数，使用URL规则参数，注册一个视图函数
 
 二.Config类
+
 Config类继承自字典dict，有5中加载数据的方式
 
 ```python
