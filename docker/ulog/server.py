@@ -24,15 +24,15 @@ def send_bi(host, port, category, message):
         return "error args"
 
     result = 0
-    socket = TSocket.TSocket(host = host, port = port)
+    socket = TSocket.TSocket(host=host, port=port)
     socket.setTimeout(3000)
     transport = TTransport.TFramedTransport(socket)
-    protocol = TBinaryProtocol.TBinaryProtocol(trans = transport, strictRead = False, strictWrite = False)
-    client = scribe.Client(iprot = protocol, oprot = protocol)
+    protocol = TBinaryProtocol.TBinaryProtocol(trans=transport, strictRead=False, strictWrite=False)
+    client = scribe.Client(iprot=protocol, oprot=protocol)
 
     try:
         transport.open()
-        log_entry = scribe.LogEntry(category = category, message = message)
+        log_entry = scribe.LogEntry(category=category, message=message)
         result = client.Log(messages=[log_entry])
     except Exception as e:
         result = "failed to write bilog"
@@ -60,4 +60,3 @@ def send_bi(host, port, category, message):
 #    app.wsgi_app = ProxyFix(app.wsgi_app)
 #
 #    app.run(host='0.0.0.0', port=8080, debug=True)
-
