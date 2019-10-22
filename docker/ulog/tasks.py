@@ -16,11 +16,11 @@ def sendbi(category, message):
     result = False
     try:
         url = "{BASE_URL}/sendbi/{DEST_HOST}/{DEST_PORT}/{category}/{message}".format(
-                BASE_URL = BASE_URL,
-                DEST_HOST = DEST_HOST,
-                DEST_PORT = DEST_PORT,
-                category = category,
-                message = message)
+            BASE_URL=BASE_URL,
+            DEST_HOST=DEST_HOST,
+            DEST_PORT=DEST_PORT,
+            category=category,
+            message=message)
 
         resp = requests.get(url)
         if resp.status_code == 200:
