@@ -98,6 +98,7 @@ card_type任务类型定义：
 | user_id | 成员编号 | int | 主站用户编号 |
 | board_id | 看板编号 | int | FK看板编号 |
 | create_at | 创建时间 | datetime | NOT NULL |
+
 `备注：成员与看板为多对多关系，一个成员可以加入多个看板，一个看板包含多个成员。`
 
 **Invite Record - 用户邀请记录** `表名：t_invite_record`
@@ -110,6 +111,7 @@ card_type任务类型定义：
 | status | 状态 | int | 默认0 |
 | board_id | 看板编号 | int | |
 | create_at | 创建时间 | datetime | NOT NULL |
+
 `备注：status定义: 0-未操作，1-同意，2-拒绝`
 
 **Team - 团队** `表名：t_team` ***reserved***
@@ -158,6 +160,7 @@ card_type任务类型定义：
 | notify_data | 通知数据 | blob | |
 | operator | 操作人 | int | |
 | create_at | 创建日期 | datetime | | |
+
 `备注：未来可考虑分表存储`
 
 | 通知事件 | 事件描述 | 通知人 | 通知标题 |
