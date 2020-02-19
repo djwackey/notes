@@ -1,5 +1,5 @@
 <blockquote>20150828</blockquote>
-### 问题描述 ###
+### 问题描述
 
 今天在做苹果支付订单验证的时候，出现了问题：
 
@@ -25,13 +25,13 @@ pip install pyopenssl ndg-httpsclient pyasn1
 apt-get install libffi-dev libssl-dev
 ```
 
-### 其他解决方案：###
+### 其他解决方案：
 有人说升级python至2.7.9版本即可解决问题，若不想升级的话，降低你的requests版本至2.5.3
 ```shell
 sudo pip install requests==2.5.3
 ```
 
-### 问题解决：###
+### 问题解决：
 使用pip或easy_install安装pyopenssl的时候，安装cffi的时候，报错如下：
 ```
 error: Setup script exited with error: command 'gcc' failed with exit status 1
