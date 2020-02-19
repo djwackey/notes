@@ -17,6 +17,7 @@ Elasticsearch服务器开发（第2版）| Rafał Kuć, Marek Rogoziński | 2017
 Hadoop海量数据处理 | 范东来 | 2017-09-25 |
 Redis实战 | （美）卡尔森 | 2017-11-30 |
 Spark快速大数据分析 | Holden Karau, Andy Konwinski, Patrick Wendell, Matei Zaharia | 2018-01-18 |
+MongoDB权威指南（第2版） | Kristina Chodorow | 2019-03-16 |
 
 
 ### 评书类
