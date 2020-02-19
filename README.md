@@ -2,7 +2,8 @@
 
 ### 目录：
 * Algorithm
-    * [列表反转](https://github.com/djwackey/notes/blob/master/algorithm/list_reverse.py)
+    * LeetCode
+      *[两数之和](https://github.com/djwackey/notes/blob/master/algorithm/two_sum.ipynb)
 * C/C++
 * Docker
     * [学习笔记](https://github.com/djwackey/notes/blob/master/docker/note.md)
