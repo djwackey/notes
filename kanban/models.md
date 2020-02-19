@@ -87,6 +87,7 @@ card_type任务类型定义：
 | card_id | 任务编号 | int | FK任务编号 |
 | attachment_id | 附件编号 | int | FK附件编号 |
 | create_at | 创建时间 | datetime | NOT NULL |
+
 `备注：任务与附近为多对多关系，一个任务可以包含多个附件，一个附件可以属于多个任务。`
 
 **Board Member - 看板成员** `表名：t_board_member`
