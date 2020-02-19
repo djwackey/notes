@@ -1,13 +1,16 @@
 <blockquote>20150828</blockquote>
 ### 问题描述 ###
+
 今天在做苹果支付订单验证的时候，出现了问题：
-```
+
+```python
 /usr/local/lib/python2.7/dist-packages/requests/packages/urllib3/util/ssl_.py:79: 
           InsecurePlatformWarning: A true SSLContext object is not available.
           This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail.
           For more information, see https://urllib3.readthedocs.org/en/latest/security.html#insecureplatformwarning.
   InsecurePlatformWarning
 ```
+
 Python版本：2.7.3
 
 经过确认，发现是requests库的问题，因为苹果订单验证是通过GET https来验证的，也就是使用了SSL协议，服务器日志报上面的警告，于是上网搜了一下，发现这篇文档特别有用：
