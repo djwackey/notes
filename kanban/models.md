@@ -3,15 +3,15 @@
 | **字段名称** | **字段描述** | **字段类型** | **备注** |
 | :---: | :---: | :---: | :---: |
 | id | 编号 | int | PK自增 |
-| uuid | 看板标识 | char(64) | 看板标识 |
-| name | 看板名称 | char(64) | 看板名称 |
+| uuid | 看板标识 | varchar(64) | 看板标识 |
+| name | 看板名称 | varchar(64) | 看板名称 |
 | status | 看板状态 | int | 看板状态 |
 | thumbnail | 看板配图 | int | 配图附件编号 |
-| description | 看板描述 | char(512) | 看板描述 |
+| description | 看板描述 | varchar(512) | 看板描述 |
 | creator | 创建者 | int | 主站用户编号 |
 | operator | 操作者 | int | 操作用户编号 |
-| update_at | 更新时间 | int | 最后更新时间 |
-| create_at | 创建时间 | int | 时间戳形式 |
+| update_at | 更新时间 | datetime | 最后更新时间 |
+| create_at | 创建时间 | datetime | 时间戳形式 |
 ```
 status看板状态定义：
 0 - 禁用
@@ -25,14 +25,14 @@ status看板状态定义：
 | 字段名称 | 字段描述 | 字段类型 | 备注 |
 | :---: | :---: | :---: | :---: |
 | id | 编号 | int | PK自增 |
-| uuid | 列表标识 | char(64) | 列表标识 |
-| name | 列表名称 | char(64) | 列表名称 |
+| uuid | 列表标识 | varchar(64) | 列表标识 |
+| name | 列表名称 | varchar(64) | 列表名称 |
 | seqno | 排列序号 | int | |
 | status | 列表状态 | int | 列表状态 |
 | creator | 创建者 | int | 主站用户编号 |
 | board_id | 所属看板 | int | FK看板编号 |
-| update_at | 更新时间 | int | 更新时间 |
-| create_at | 创建时间 | int | 创建时间 |
+| update_at | 更新时间 | datetime | 更新时间 |
+| create_at | 创建时间 | datetime | 创建时间 |
 ```
 status列表状态定义：
 0 - 禁用
@@ -46,8 +46,8 @@ status列表状态定义：
 | :---: | :---: | :---: | :---: |
 | id | 编号 | int | PK自增 |
 | state_id | 所属列表 | int | FK列表编号 |
-| uuid | 任务标识 | char(64) | 任务标识 |
-| name | 任务名称 | char(64) | 任务名称 |
+| uuid | 任务标识 | varchar(64) | 任务标识 |
+| name | 任务名称 | varchar(64) | 任务名称 |
 | seqno | 排列序号 | int | |
 | status | 任务状态 | int | 任务状态 |
 | archived | 是否归档 | bool | 是否归档 |
@@ -58,10 +58,10 @@ status列表状态定义：
 | attachment_id | 附件编号 | int | |
 | assign_to | 指派人 | int | |
 | operator | 操作人 | int | |
-| end_at | 截至日期 | int | 截至日期 |
-| assign_at | 委派时间 | int | 委派时间 |
-| update_at | 更新时间 | int | 更新时间 |
-| create_at | 创建时间 | int | 创建时间 |
+| end_at | 截至日期 | datetime | 截至日期 |
+| assign_at | 委派时间 | datetime | 委派时间 |
+| update_at | 更新时间 | datetime | 更新时间 |
+| create_at | 创建时间 | datetime | 创建时间 |
 ```
 status列表状态定义：
 0 - 未完成
@@ -86,7 +86,7 @@ card_type任务类型定义：
 | id | 编号 | int | PK自增 |
 | card_id | 任务编号 | int | FK任务编号 |
 | attachment_id | 附件编号 | int | FK附件编号 |
-| create_at | 创建时间 | int | NOT NULL |
+| create_at | 创建时间 | datetime | NOT NULL |
 `备注：任务与附近为多对多关系，一个任务可以包含多个附件，一个附件可以属于多个任务。`
 
 **Board Member - 看板成员** `表名：t_board_member`
@@ -96,7 +96,7 @@ card_type任务类型定义：
 | id | 编号 | int | PK自增 |
 | user_id | 成员编号 | int | 主站用户编号 |
 | board_id | 看板编号 | int | FK看板编号 |
-| create_at | 创建时间 | int | NOT NULL |
+| create_at | 创建时间 | datetime | NOT NULL |
 `备注：成员与看板为多对多关系，一个成员可以加入多个看板，一个看板包含多个成员。`
 
 **Invite Record - 用户邀请记录** `表名：t_invite_record`
@@ -108,7 +108,7 @@ card_type任务类型定义：
 | invitee | 被邀请人 | int | |
 | status | 状态 | int | 默认0 |
 | board_id | 看板编号 | int | |
-| create_at | 创建时间 | int | NOT NULL |
+| create_at | 创建时间 | datetime | NOT NULL |
 `备注：status定义: 0-未操作，1-同意，2-拒绝`
 
 **Team - 团队** `表名：t_team` ***reserved***
@@ -122,41 +122,41 @@ card_type任务类型定义：
 | 字段名称 | 字段描述 | 字段类型 | 备注 |
 | :---: | :---: | :---: | :---: |
 | id | 编号 | int | PK自增 |
-| uuid | 评论标识 | char(64) | |
+| uuid | 评论标识 | varchar(64) | |
 | card_id | 所属任务 | int | |
 | user_id | 评论人 | int | |
-| content | 评论内容 | char(512) | |
+| content | 评论内容 | varchar(512) | |
 | status | 状态 | int | |
-| update_at | 更新时间 | int | 更新时间 |
-| create_at | 创建时间 | int | 创建时间 |
+| update_at | 更新时间 | datetime | 更新时间 |
+| create_at | 创建时间 | datetime | 创建时间 |
 
 **Attachment - 附件** `表名：t_attachment`
 
 | 字段名称 | 字段描述 | 字段类型 | 备注 |
 | :---: | :---: | :---: | :---: |
 | id | 编号 | int | PK自增 |
-| uuid | 附件标识 | char(64) | 附件标识 |
-| name | 附件名称 | char(64) | 附件名称 |
+| uuid | 附件标识 | varchar(64) | 附件标识 |
+| name | 附件名称 | varchar(64) | 附件名称 |
 | size | 附件尺寸 | int | 单位：byte |
-| path | 附件路径 | char(256) | |
-| md5 | MD5加密值 | char(32) | |
+| path | 附件路径 | varchar(256) | |
+| md5 | MD5加密值 | varchar(32) | |
 | user_id | 上传人 | int | 主站用户编号 |
 | file_type | 附件类型 | int | 附件类型 |
-| create_at | 创建时间 | int | 创建时间 |
+| create_at | 创建时间 | datetime | 创建时间 |
 
 **Notification - 消息通知** `表名：t_notification`
 
 | 字段名称 | 字段描述 | 字段类型 | 备注 |
 | :---: | :---: | :---: | :---: |
 | id | 编号 | int | PK自增 |
-| uuid | 通知标识 | char(64) | 通知标识 |
-| title | 通知标题 | char(512) | NOT NULL |
+| uuid | 通知标识 | varchar(64) | 通知标识 |
+| title | 通知标题 | varchar(512) | NOT NULL |
 | status | 通知状态 | int | |
 | notify_to | 通知人 | int | |
 | notify_event | 通知事件 | int | NOT NULL |
 | notify_data | 通知数据 | blob | |
 | operator | 操作人 | int | |
-| create_at | 创建日期 | int | | |
+| create_at | 创建日期 | datetime | | |
 `备注：未来可考虑分表存储`
 
 | 通知事件 | 事件描述 | 通知人 | 通知标题 |
@@ -194,18 +194,18 @@ card_type任务类型定义：
 | 字段名称 | 字段描述 | 字段类型 | 备注 |
 | :---: | :---: | :---: | :---: |
 | id | 编号 | int | PK自增 |
-| uuid | 日志标识 | char(64) | |
-| name | 日志名称 | char(64) | |
+| uuid | 日志标识 | varchar(64) | |
+| name | 日志名称 | varchar(64) | |
 | card_id | 任务编号 | int | FK任务编号 |
 | board_id | 看板编号 | int | FK看板编号 |
 | click_count | 击鼠标次数 | int | |
 | typing_count | 击键盘次数 | int | |
 | attachment_id | 附件编号 | int | FK附件编号 |
 | auto_commit | 是否自动提交 | bool | |
-| description | 描述 | char(512) | |
-| record_at | 记录时间 | int | 记录时间 |
-| update_at | 更新时间 | int | 更新时间 |
-| create_at | 创建时间 | int | 创建时间 |
+| description | 描述 | varchar(512) | |
+| record_at | 记录时间 | datetime | 记录时间 |
+| update_at | 更新时间 | datetime | 更新时间 |
+| create_at | 创建时间 | datetime | 创建时间 |
 
 **Action Record - 动态** `表名：t_action_record`
 
@@ -217,14 +217,14 @@ card_type任务类型定义：
 | board_id | 所属看板 | int | |
 | action_id | 行为编号 | int | |
 | description | 动态描述 | text | |
-| create_at | 创建时间 | int | 创建时间 |
+| create_at | 创建时间 | datetime | 创建时间 |
 
 **User Action - 用户行为** `表名：t_user_action`
 
 | 字段名称 | 字段描述 | 字段类型 | 备注 |
 | :---: | :---: | :---: | :---: |
 | id | 编号 | int | PK自增 |
-| name | 名称 | char(64) | |
-| notify_title | 通知标题 | char(128) | 通知标题 |
-| action_title | 动态标题 | char(128) | 动态标题 |
-| create_at | 创建时间 | int | 创建时间 |
+| name | 名称 | varchar(64) | |
+| notify_title | 通知标题 | varchar(128) | 通知标题 |
+| action_title | 动态标题 | varchar(128) | 动态标题 |
+| create_at | 创建时间 | datetime | 创建时间 |
