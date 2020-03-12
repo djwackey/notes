@@ -1,6 +1,8 @@
-## Leetcode
+# Leetcode
 [1.两数之和](https://github.com/djwackey/notes/blob/master/leetcode/two_sum.ipynb)
+
 [2.两数相加](https://github.com/djwackey/notes/blob/master/leetcode/add_two_numbers.ipynb)
+
 [3.无重复字符的最长子串](https://github.com/djwackey/notes/blob/master/leetcode/length_of_longest_substr.ipynb)
 [7.整数反转](https://github.com/djwackey/notes/blob/master/leetcode/reverse_integer.ipynb)
 [9.回文数](https://github.com/djwackey/notes/blob/master/leetcode/palindrome_number.ipynb)
