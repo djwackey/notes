@@ -2,7 +2,7 @@
 
 ### 目录：
 * Algorithm
-* LeetCode(https://github.com/djwackey/notes/blob/master/leetcode)
+* [LeetCode](https://github.com/djwackey/notes/blob/master/leetcode)
 * C/C++
 * Docker
     * [学习笔记](https://github.com/djwackey/notes/blob/master/docker/note.md)
