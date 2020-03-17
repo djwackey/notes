@@ -23,3 +23,4 @@
 * [88.合并两个有序数组](https://github.com/djwackey/notes/blob/master/leetcode/merge_sorted_array.ipynb)
 * [100.相同的树](https://github.com/djwackey/notes/blob/master/leetcode/same_tree.ipynb)
 * [101.对称二叉树](https://github.com/djwackey/notes/blob/master/leetcode/symmetric_tree.ipynb)
+* [104.二叉树的最大深度](https://github.com/djwackey/notes/blob/master/leetcode/maximum_depth_of_binary_tree.ipynb)
