@@ -29,3 +29,4 @@
 * [110.平衡二叉树](https://github.com/djwackey/notes/blob/master/leetcode/balanced_binary_tree.ipynb)
 * [111.二叉树的最小深度](https://github.com/djwackey/notes/blob/master/leetcode/minimum_depth_of_binary_tree.ipynb)
 * [112.路径总和](https://github.com/djwackey/notes/blob/master/leetcode/path_sum.ipynb)
+* [118.杨辉三角](https://github.com/djwackey/notes/blob/master/leetcode/pascals_triangle.ipynb)
