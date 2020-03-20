@@ -10,6 +10,7 @@
     * [源码编译](https://github.com/djwackey/notes/blob/master/golang/golang.md)
 * MySQL
     * [基础配置文件](https://github.com/djwackey/notes/blob/master/mysql/my.cnf)
+    * [深入理解MySQL索引底层原理](https://github.com/djwackey/notes/blob/master/mysql/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3MySQL%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86.md)
 * Python
     * [Google Style Guide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md)
 * Shell
