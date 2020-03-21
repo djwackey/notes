@@ -224,7 +224,7 @@
 
 例如：我们有一张表Account，假设用户余额为100。
 
-![](https://raw.githubusercontent.com/djwackey/notes/master/mysql/images/88139202/645.webp)
+![](https://raw.githubusercontent.com/djwackey/notes/master/mysql/images/88139202/642.webp)
 
 我们需要在发生数据变更后，能够追溯数据变更的历史信息，如果对账户更新状态数据，增加100的余额，这样余额为200。
 
@@ -234,11 +234,11 @@
 
 在account_hist中就会是两条insert记录，如下:
 
-![](https://raw.githubusercontent.com/djwackey/notes/master/mysql/images/88139202/645.webp)
+![](https://raw.githubusercontent.com/djwackey/notes/master/mysql/images/88139202/643.webp)
 
 而在account中则是一条update语句，如下：
 
-![](https://raw.githubusercontent.com/djwackey/notes/master/mysql/images/88139202/645.webp)
+![](https://raw.githubusercontent.com/djwackey/notes/master/mysql/images/88139202/644.webp)
 
 这也是一种很基础的冷热分离，可以大大减少维护的复杂度，提高业务响应效率。
 
@@ -288,7 +288,7 @@
 
 无需生成100个事务（200条SQL语句）可以改造为2条SQL语句，如下图所示。
 
-![](https://raw.githubusercontent.com/djwackey/notes/master/mysql/images/88139202/645.webp)
+![](https://raw.githubusercontent.com/djwackey/notes/master/mysql/images/88139202/646.webp)
 
 对于业务指标，比如更新频率细节信息，可以根据具体业务场景来讨论决定。
 
@@ -296,7 +296,7 @@
 
 架构层优化其实就是我们认为的那种技术含量很高的工作，我们需要根据业务场景在架构层面引入一些新的花样来。
 
-![](https://raw.githubusercontent.com/djwackey/notes/master/mysql/images/88139202/645.webp)
+![](https://raw.githubusercontent.com/djwackey/notes/master/mysql/images/88139202/647.webp)
 
 **3.1.系统水平扩展场景**
 
@@ -304,13 +304,13 @@
 
 实现数据路由，水平扩展，常见的中间件有MyCAT，ShardingSphere，ProxySQL等
 
-![](https://raw.githubusercontent.com/djwackey/notes/master/mysql/images/88139202/645.webp)
+![](https://raw.githubusercontent.com/djwackey/notes/master/mysql/images/88139202/648.webp)
 
 **（2）采用读写分离技术**
 
 这是针对读需求的扩展，更侧重于状态表，在允许一定延迟的情况下，可以采用多副本的模式实现读需求的水平扩展，也可以采用中间件来实现，如MyCAT,ProxySQL,MaxScale,MySQL Router等
 
-![](https://raw.githubusercontent.com/djwackey/notes/master/mysql/images/88139202/645.webp)
+![](https://raw.githubusercontent.com/djwackey/notes/master/mysql/images/88139202/649.webp)
 
 **（3）采用负载均衡技术**
 
@@ -332,7 +332,7 @@
 
 数据库优化，其实可打的牌也不少，但是相对来说空间没有那么大了，我们来逐个说一下。
 
-![](https://raw.githubusercontent.com/djwackey/notes/master/mysql/images/88139202/645.webp)
+![](https://raw.githubusercontent.com/djwackey/notes/master/mysql/images/88139202/650.webp)
 
 **4.1 事务优化**
 
