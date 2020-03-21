@@ -11,6 +11,7 @@
 * MySQL
     * [基础配置文件](https://github.com/djwackey/notes/blob/master/mysql/my.cnf)
     * [深入理解MySQL索引底层原理](https://github.com/djwackey/notes/blob/master/mysql/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3MySQL%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86.md)
+    * [如何优化MySQL千万级大表](https://github.com/djwackey/notes/blob/master/mysql/%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96MySQL%E5%8D%83%E4%B8%87%E7%BA%A7%E5%A4%A7%E8%A1%A8.md)
 * Python
     * [Google Style Guide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md)
 * Shell
