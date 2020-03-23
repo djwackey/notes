@@ -34,3 +34,4 @@
 * [121.买卖股票的最佳时机](https://github.com/djwackey/notes/blob/master/leetcode/best_time_to_buy_and_sell_stock.ipynb)
 * [122.买卖股票的最佳时机 II](https://github.com/djwackey/notes/blob/master/leetcode/best_time_to_buy_and_sell_stock_ii.ipynb)
 * [125.验证回文串](https://github.com/djwackey/notes/blob/master/leetcode/valid_palindrome.ipynb)
+* [136.只出现一次的数字](https://github.com/djwackey/notes/blob/master/leetcode/single_number.ipynb)
