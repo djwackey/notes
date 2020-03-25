@@ -14,6 +14,8 @@
     * [如何优化MySQL千万级大表](https://github.com/djwackey/notes/blob/master/mysql/%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96MySQL%E5%8D%83%E4%B8%87%E7%BA%A7%E5%A4%A7%E8%A1%A8.md)
 * Python
     * [Google Style Guide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md)
+* Redis
+    * [2020年最新版68道Redis面试题](https://github.com/djwackey/notes/blob/master/redis/2020%E5%B9%B4%E6%9C%80%E6%96%B0%E7%89%8868%E9%81%93Redis%E9%9D%A2%E8%AF%95%E9%A2%98.md)
 * Shell
 * Ubuntu
 * Vim
