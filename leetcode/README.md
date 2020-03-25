@@ -36,3 +36,4 @@
 * [125.验证回文串](https://github.com/djwackey/notes/blob/master/leetcode/valid_palindrome.ipynb)
 * [136.只出现一次的数字](https://github.com/djwackey/notes/blob/master/leetcode/single_number.ipynb)
 * [141.环形链表](https://github.com/djwackey/notes/blob/master/leetcode/linked_list_cycle.ipynb)
+* [155.最小栈](https://github.com/djwackey/notes/blob/master/leetcode/min_stack.ipynb)
