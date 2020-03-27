@@ -38,3 +38,4 @@
 * [141.环形链表](https://github.com/djwackey/notes/blob/master/leetcode/linked_list_cycle.ipynb)
 * [155.最小栈](https://github.com/djwackey/notes/blob/master/leetcode/min_stack.ipynb)
 * [160.相交链表](https://github.com/djwackey/notes/blob/master/leetcode/intersection_of_two_linked_lists.ipynb)
+* [167.两数之和 II - 输入有序数组](https://github.com/djwackey/notes/blob/master/leetcode/two_sum_ii_input_array_is_sorted.ipynb)
