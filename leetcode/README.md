@@ -40,3 +40,4 @@
 * [160.相交链表](https://github.com/djwackey/notes/blob/master/leetcode/intersection_of_two_linked_lists.ipynb)
 * [167.两数之和 II - 输入有序数组](https://github.com/djwackey/notes/blob/master/leetcode/two_sum_ii_input_array_is_sorted.ipynb)
 * [168.Excel表列名称](https://github.com/djwackey/notes/blob/master/leetcode/excel_sheet_column_title.ipynb)
+* [169.多数元素](https://github.com/djwackey/notes/blob/master/leetcode/majority_element.ipynb)
