@@ -42,3 +42,4 @@
 * [168.Excel表列名称](https://github.com/djwackey/notes/blob/master/leetcode/excel_sheet_column_title.ipynb)
 * [169.多数元素](https://github.com/djwackey/notes/blob/master/leetcode/majority_element.ipynb)
 * [171.Excel表列序号](https://github.com/djwackey/notes/blob/master/leetcode/excel_sheet_column_number.ipynb)
+* [172.阶乘后的零](https://github.com/djwackey/notes/blob/master/leetcode/factorial_trailing_zeroes.ipynb)
