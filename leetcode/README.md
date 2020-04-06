@@ -45,3 +45,4 @@
 * [172.阶乘后的零](https://github.com/djwackey/notes/blob/master/leetcode/factorial_trailing_zeroes.ipynb)
 * [189.旋转数组](https://github.com/djwackey/notes/blob/master/leetcode/rotate_array.ipynb)
 * [190.颠倒二进制位](https://github.com/djwackey/notes/blob/master/leetcode/reverse_bits.ipynb)
+* [191.位1的个数](https://github.com/djwackey/notes/blob/master/leetcode/number_of_1_bits.ipynb)
