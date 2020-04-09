@@ -47,3 +47,4 @@
 * [190.颠倒二进制位](https://github.com/djwackey/notes/blob/master/leetcode/reverse_bits.ipynb)
 * [191.位1的个数](https://github.com/djwackey/notes/blob/master/leetcode/number_of_1_bits.ipynb)
 * [198.打家劫舍](https://github.com/djwackey/notes/blob/master/leetcode/house_robber.ipynb)
+* [202.快乐数](https://github.com/djwackey/notes/blob/master/leetcode/happy_number.ipynb)
