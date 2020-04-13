@@ -50,3 +50,4 @@
 * [202.快乐数](https://github.com/djwackey/notes/blob/master/leetcode/happy_number.ipynb)
 * [203.移除链表元素](https://github.com/djwackey/notes/blob/master/leetcode/remove_linked_list_elements.ipynb)
 * [204.计数质数](https://github.com/djwackey/notes/blob/master/leetcode/count_primes.ipynb)
+* [205.同构字符串](https://github.com/djwackey/notes/blob/master/leetcode/isomorphic_strings.ipynb)
