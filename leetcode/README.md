@@ -51,3 +51,4 @@
 * [203.移除链表元素](https://github.com/djwackey/notes/blob/master/leetcode/remove_linked_list_elements.ipynb)
 * [204.计数质数](https://github.com/djwackey/notes/blob/master/leetcode/count_primes.ipynb)
 * [205.同构字符串](https://github.com/djwackey/notes/blob/master/leetcode/isomorphic_strings.ipynb)
+* [206.反转链表](https://github.com/djwackey/notes/blob/master/leetcode/reverse_linked_list.ipynb)
