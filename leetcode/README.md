@@ -52,3 +52,4 @@
 * [204.计数质数](https://github.com/djwackey/notes/blob/master/leetcode/count_primes.ipynb)
 * [205.同构字符串](https://github.com/djwackey/notes/blob/master/leetcode/isomorphic_strings.ipynb)
 * [206.反转链表](https://github.com/djwackey/notes/blob/master/leetcode/reverse_linked_list.ipynb)
+* [217.存在重复元素](https://github.com/djwackey/notes/blob/master/leetcode/contains_duplicate.ipynb)
