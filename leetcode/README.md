@@ -54,3 +54,4 @@
 * [206.反转链表](https://github.com/djwackey/notes/blob/master/leetcode/reverse_linked_list.ipynb)
 * [217.存在重复元素](https://github.com/djwackey/notes/blob/master/leetcode/contains_duplicate.ipynb)
 * [219.存在重复元素 II](https://github.com/djwackey/notes/blob/master/leetcode/contains_duplicate_ii.ipynb)
+* [225.用队列实现栈](https://github.com/djwackey/notes/blob/master/leetcode/implement_stack_using_queues.ipynb)
