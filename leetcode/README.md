@@ -58,3 +58,4 @@
 * [226.翻转二叉树](https://github.com/djwackey/notes/blob/master/leetcode/invert_binary_tree.ipynb)
 * [231.2的幂](https://github.com/djwackey/notes/blob/master/leetcode/power_of_two.ipynb)
 * [232.用栈实现队列](https://github.com/djwackey/notes/blob/master/leetcode/implement_queue_using_stacks.ipynb)
+* [234.回文链表](https://github.com/djwackey/notes/blob/master/leetcode/palindrome_linked_list.ipynb)
