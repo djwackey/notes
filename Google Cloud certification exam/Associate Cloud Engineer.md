@@ -184,3 +184,51 @@
   - B. Firebase Messages, Cloud Pub/Sub, Cloud Spanner, BigQuery
   - C. Cloud Pub/Sub, Cloud Storage, BigQuery, Cloud Bigtable
   - **`D. Cloud Pub/Sub, Cloud Dataflow, Cloud Bigtable, BigQuery`**
+
+
+24. You have a project for your App Engine application that serves a development environment. The required testing has succeeded and you want to create a new project to serve as your production environment. What should you do?
+
+  - **`A. Use gcloud to create the new project, and then deploy your application to the new project.`**
+  - B. Use gcloud to create the new project and to copy the deployed application to the new project.
+  - C. Create a Deployment Manager configuration file that copies the current App Engine deployment into a new project.
+  - D. Deploy your application again using gcloud and specify the project parameter with the new project name to create the new project.
+
+
+25. You need to configure IAM access audit logging in BigQuery for external auditors. You want to follow Google-recommended practices. What should you do?
+
+  - **`A. Add the auditors group to the "logging.viewer" and "bigQuery.dataViewer" predefined IAM roles.`**
+  - B. Add the auditors group to two new custom IAM roles.
+  - C. Add the auditor user accounts to the "logging.viewer" and "bigQuery.dataViewer" predefined IAM roles.
+  - D. Add the auditor user accounts to two new custom IAM roles.
+
+
+26. You need to set up permissions for a set of Compute Engine instances to enable them to write data into a particular Cloud Storage bucket. You want to follow Google-recommended practices. What should you do?
+
+  - A. Create a service account with an access scope. Use the access scope "https://www.googleapis.com/auth/devstorage.write\_only".
+  - B. Create a service account with an access scope. Use the access scope "https://www.googleapis.com/auth/cloud-platform".
+  - **`C. Create a service account and add it to the IAM role "storage.objectCreator" for that bucket.`**
+  - D. Create a service account and add it to the IAM role "storage.objectAdmin" for that bucket.
+
+
+27. You have sensitive data stored in three Cloud Storage buckets and have enabled data access logging. You want to verify activities for a particular user for these buckets, using the fewest possible steps. You need to verify the addition of metadata labels and which files have been viewed from those buckets. What should you do?
+
+  - A. Using the GCP Console, filter the Activity log to view the information.
+  - **`B. Using the GCP Console, filter the Stackdriver log to view the information.`**
+  - C. View the bucket in the Storage section of the GCP Console.
+  - D. Create a trace in Stackdriver to view the information.
+
+
+28. You are the project owner of a GCP project and want to delegate control to colleagues to manage buckets and files in Cloud Storage. You want to follow Google-recommended practices. Which IAM roles should you grant your colleagues?
+
+  - A. Project Editor
+  - **`B. Storage Admin`**
+  - C. Storage Object Admin
+  - D. Storage Object Creator
+
+
+29. You have an object in a Cloud Storage bucket that you want to share with an external company. The object contains sensitive data. You want access to the content to be removed after four hours. The external company does not have a Google account to which you can grant specific user-based access privileges. You want to use the most secure method that requires the fewest steps. What should you do?
+
+  - **`A. Create a signed URL with a four-hour expiration and share the URL with the company.`**
+  - B. Set object access to "public" and use object lifecycle management to remove the object after four hours.
+  - C. Configure the storage bucket as a static website and furnish the object”s URL to the company. Delete the object from the storage bucket after four hours.
+  - D. Create a new Cloud Storage bucket specifically for the external company to access. Copy the object to that bucket. Delete the bucket after four hours have passed.
