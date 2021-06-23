@@ -204,7 +204,7 @@
 
 26. You need to set up permissions for a set of Compute Engine instances to enable them to write data into a particular Cloud Storage bucket. You want to follow Google-recommended practices. What should you do?
 
-  - A. Create a service account with an access scope. Use the access scope "https://www.googleapis.com/auth/devstorage.write\_only".
+  - A. Create a service account with an access scope. Use the access scope "https://www.googleapis.com/auth/devstorage.write_only".
   - B. Create a service account with an access scope. Use the access scope "https://www.googleapis.com/auth/cloud-platform".
   - **`C. Create a service account and add it to the IAM role "storage.objectCreator" for that bucket.`**
   - D. Create a service account and add it to the IAM role "storage.objectAdmin" for that bucket.
