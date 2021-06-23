@@ -173,7 +173,7 @@
   - A. Use granular logging statements within a Deployment Manager template authored in Python.
   - B. Monitor activity of the Deployment Manager execution on the Stackdriver Logging page of the GCP Console.
   - C. Execute the Deployment Manager template against a separate project with the same configuration, and monitor for failures.
-  - **`D. Execute the Deployment Manager template using the "-preview option in the same project, and observe the state of interdependent resources.`**
+  - **`D. Execute the Deployment Manager template using the "-preview" option in the same project, and observe the state of interdependent resources.`**
 
 
 23. You are building a pipeline to process time-series data. Which Google Cloud Platform services should you put in boxes 1,2,3, and 4?
@@ -232,3 +232,77 @@
   - B. Set object access to "public" and use object lifecycle management to remove the object after four hours.
   - C. Configure the storage bucket as a static website and furnish the object”s URL to the company. Delete the object from the storage bucket after four hours.
   - D. Create a new Cloud Storage bucket specifically for the external company to access. Copy the object to that bucket. Delete the bucket after four hours have passed.
+
+
+30. You are creating a Google Kubernetes Engine (GKE) cluster with a cluster autoscaler feature enabled. You need to make sure that each node of the cluster will run a monitoring pod that sends container metrics to a third-party monitoring solution. What should you do?
+
+  - A. Deploy the monitoring pod in a StatefulSet object.
+  - **`B. Deploy the monitoring pod in a DaemonSet object.`**
+  - C. Reference the monitoring pod in a Deployment object.
+  - D. Reference the monitoring pod in a cluster initializer at the GKE cluster creation time.
+
+
+31. You want to send and consume Cloud Pub/Sub messages from your App Engine application. The Cloud Pub/Sub API is currently disabled. You will use a service account to authenticate your application to the API. You want to make sure your application can use Cloud Pub/Sub. What should you do?
+
+  - **`A. Enable the Cloud Pub/Sub API in the API Library on the GCP Console.`**
+  - B. Rely on the automatic enablement of the Cloud Pub/Sub API when the Service Account accesses it.
+  - C. Use Deployment Manager to deploy your application. Rely on the automatic enablement of all APIs used by the application being deployed.
+  - D. Grant the App Engine Default service account the role of Cloud Pub/Sub Admin. Have your application enable the API on the first connection to Cloud Pub/Sub.
+
+
+32. You need to monitor resources that are distributed over different projects in Google Cloud Platform. You want to consolidate reporting under the same Stackdriver Monitoring dashboard. What should you do?
+
+  - A. Use Shared VPC to connect all projects, and link Stackdriver to one of the projects.
+  - B. For each project, create a Stackdriver account. In each project, create a service account for that project and grant it the role of Stackdriver Account Editor in all other projects.
+  - **`C. Configure a single Stackdriver account, and link all projects to the same account.`**
+  - D. Configure a single Stackdriver account for one of the projects. In Stackdriver, create a Group and add the other project names as criteria for that Group.
+
+
+33. You are deploying an application to a Compute Engine VM in a managed instance group. The application must be running at all times, but only a single instance of the VM should run per GCP project. How should you configure the instance group?
+
+  - A. Set autoscaling to On, set the minimum number of instances to 1, and then set the maximum number of instances to 1.
+  - B. Set autoscaling to Off, set the minimum number of instances to 1, and then set the maximum number of instances to 1.
+  - C. Set autoscaling to On, set the minimum number of instances to 1, and then set the maximum number of instances to 2.
+  - D. Set autoscaling to Off, set the minimum number of instances to 1, and then set the maximum number of instances to 2.
+
+
+34. You want to verify the IAM users and roles assigned within a GCP project named my-project. What should you do?
+
+  - A. Run gcloud iam roles list. Review the output section.
+  - B. Run gcloud iam service-accounts list. Review the output section.
+  - C. Navigate to the project and then to the IAM section in the GCP Console. Review the members and roles.
+  - D. Navigate to the project and then to the Roles section in the GCP Console. Review the roles and status.
+
+
+35. You need to create a new billing account and then link it with an existing Google Cloud Platform project. What should you do?
+
+  - A. Verify that you are Project Billing Manager for the GCP project. Update the existing project to link it to the existing billing account.
+  - B. Verify that you are Project Billing Manager for the GCP project. Create a new billing account and link the new billing account to the existing project.
+  - C. Verify that you are Billing Administrator for the billing account. Create a new project and link the new project to the existing billing account.
+  - D. Verify that you are Billing Administrator for the billing account. Update the existing project to link it to the existing billing account.
+
+
+36. You have one project called proj-sa where you manage all your service accounts. You want to be able to use a service account from this project to take snapshots of VMs running in another project called proj-vm. What should you do?
+
+  - A. Download the private key from the service account, and add it to each VMs custom metadata.
+  - B. Download the private key from the service account, and add the private key to each VM”s SSH keys.
+  - C. Grant the service account the IAM Role of Compute Storage Admin in the project called proj-vm.
+  - D. When creating the VMs, set the service account's API scope for Compute Engine to read/write.
+
+
+37. You created a Google Cloud Platform project with an App Engine application inside the project. You initially configured the application to be served from the us- central region. Now you want the application to be served from the asia-northeast1 region. What should you do?
+
+  - A. Change the default region property setting in the existing GCP project to asia-northeast1.
+  - B. Change the region property setting in the existing App Engine application from us-central to asia-northeast1.
+  - C. Create a second App Engine application in the existing GCP project and specify asia-northeast1 as the region to serve your application.
+  - D. Create a new GCP project and create an App Engine application inside this new project. Specify asia-northeast1 as the region to serve your application.
+
+
+38. You need to grant access for three users so that they can view and edit table data on a Cloud Spanner instance. What should you do?
+
+  - A. Run gcloud iam roles describe roles/spanner.databaseUser. Add the users to the role.
+  - B. Run gcloud iam roles describe roles/spanner.databaseUser. Add the users to a new group. Add the group to the role.
+  - C. Run gcloud iam roles describe roles/spanner.viewer - -project my-project. Add the users to the role.
+  - D. Run gcloud iam roles describe roles/spanner.viewer - -project my-project. Add the users to a new group. Add the group to the role.
+
+
