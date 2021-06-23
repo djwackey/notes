@@ -107,7 +107,7 @@
 14. You need to update a deployment in Deployment Manager without any resource downtime in the deployment. Which command should you use?
 
   - A. gcloud deployment-manager deployments create --config \<deployment-config-path\>
-  - **`B. gcloud deployment-manager deployments update --config \<deployment-config-path\>`**
+  - **`B. gcloud deployment-manager deployments update --config <deployment-config-path>`**
   - C. gcloud deployment-manager resources create --config \<deployment-config-path\>
   - D. gcloud deployment-manager resources update --config \<deployment-config-path\>
 
