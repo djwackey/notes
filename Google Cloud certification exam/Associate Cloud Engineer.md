@@ -162,7 +162,7 @@
 
 21. You have one GCP account running in your default region and zone and another account running in a non-default region and zone. You want to start a new Compute Engine instance in these two Google Cloud Platform accounts using the command line interface. What should you do?
 
-  - **`A. Create two configurations using gcloud config configurations create \[NAME\]. Run gcloud config configurations activate \[NAME\] to switch between accounts when running the commands to start the Compute Engine instances.`**
+  - **`A. Create two configurations using gcloud config configurations create [NAME]. Run gcloud config configurations activate [NAME] to switch between accounts when running the commands to start the Compute Engine instances.`**
   - B. Create two configurations using gcloud config configurations create \[NAME\]. Run gcloud configurations list to start the Compute Engine instances.
   - C. Activate two configurations using gcloud configurations activate \[NAME\]. Run gcloud config list to start the Compute Engine instances.
   - D. Activate two configurations using gcloud configurations activate \[NAME\]. Run gcloud configurations list to start the Compute Engine instances.
