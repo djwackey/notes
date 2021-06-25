@@ -445,46 +445,205 @@ You need to refactor this configuration so that the database password is not sto
 
 53. Your company has a 3-tier solution running on Compute Engine. The configuration of the current infrastructure is shown below.
 
+![image](https://raw.githubusercontent.com/djwackey/notes/master/Google%20Cloud%20certification%20exam/images/53.png)
+
 Each tier has a service account that is associated with all instances within it. You need to enable communication on TCP port 8080 between tiers as follows:
 ◉ Instances in tier #1 must communicate with tier #2.
 ◉ Instances in tier #2 must communicate with tier #3.
 What should you do?
 
-![image](https://raw.githubusercontent.com/djwackey/notes/master/Google%20Cloud%20certification%20exam/images/53.png)
+  - A. 1. Create an ingress firewall rule with the following settings: ◉ Targets: all instances ◉ Source filter: IP ranges (with the range set to 10.0.2.0/24) ◉ Protocols: allow all 2. Create an ingress firewall rule with the following settings: ◉ Targets: all instances ◉ Source filter: IP ranges (with the range set to 10.0.1.0/24) ◉ Protocols: allow all
+  - **`B. 1. Create an ingress firewall rule with the following settings: ◉ Targets: all instances with tier #2 service account ◉ Source filter: all instances with tier #1 service account ◉ Protocols: allow TCP:8080 2. Create an ingress firewall rule with the following settings: ◉ Targets: all instances with tier #3 service account ◉ Source filter: all instances with tier #2 service account ◉ Protocols: allow TCP: 8080`**
+  - C. 1. Create an ingress firewall rule with the following settings: ◉ Targets: all instances with tier #2 service account ◉ Source filter: all instances with tier #1 service account ◉ Protocols: allow all 2. Create an ingress firewall rule with the following settings: ◉ Targets: all instances with tier #3 service account ◉ Source filter: all instances with tier #2 service account ◉ Protocols: allow all
+  - D. 1. Create an egress firewall rule with the following settings: ◉ Targets: all instances ◉ Source filter: IP ranges (with the range set to 10.0.2.0/24) ◉ Protocols: allow TCP: 8080 2. Create an egress firewall rule with the following settings: ◉ Targets: all instances ◉ Source filter: IP ranges (with the range set to 10.0.1.0/24) ◉ Protocols: allow TCP: 8080
 
-  - A.
-    1. Create an ingress firewall rule with the following settings:
-      ◉ Targets: all instances 
-      ◉ Source filter: IP ranges (with the range set to 10.0.2.0/24) 
-      ◉ Protocols: allow all 
-    2. Create an ingress firewall rule with the following settings: 
-      ◉ Targets: all instances 
-      ◉ Source filter: IP ranges (with the range set to 10.0.1.0/24) 
-      ◉ Protocols: allow all
-  - **`B.`**
-    **`1. Create an ingress firewall rule with the following settings: 
-      ◉ Targets: all instances with tier #2 service account 
-      ◉ Source filter: all instances with tier #1 service account 
-      ◉ Protocols: allow TCP:8080 `**
-    **`2. Create an ingress firewall rule with the following settings: 
-      ◉ Targets: all instances with tier #3 service account 
-      ◉ Source filter: all instances with tier #2 service account 
-      ◉ Protocols: allow TCP: 8080`**
-  - C.
-    1. Create an ingress firewall rule with the following settings: 
-      ◉ Targets: all instances with tier #2 service account 
-      ◉ Source filter: all instances with tier #1 service account 
-      ◉ Protocols: allow all 
-    2. Create an ingress firewall rule with the following settings: 
-      ◉ Targets: all instances with tier #3 service account 
-      ◉ Source filter: all instances with tier #2 service account 
-      ◉ Protocols: allow all
-  - D. 
-    1. Create an egress firewall rule with the following settings: 
-      ◉ Targets: all instances 
-      ◉ Source filter: IP ranges (with the range set to 10.0.2.0/24) 
-      ◉ Protocols: allow TCP: 8080 
-    2. Create an egress firewall rule with the following settings: 
-      ◉ Targets: all instances 
-      ◉ Source filter: IP ranges (with the range set to 10.0.1.0/24) 
-      ◉ Protocols: allow TCP: 8080
+
+54. You are given a project with a single Virtual Private Cloud (VPC) and a single subnetwork in the us-central1 region. There is a Compute Engine instance hosting an application in this subnetwork. You need to deploy a new instance in the same project in the europe-west1 region. This new instance needs access to the application. You want to follow Google-recommended practices. What should you do?
+
+  - **`A. 1. Create a subnetwork in the same VPC, in europe-west1. 2. Create the new instance in the new subnetwork and use the first instance's private address as the endpoint.`**
+  - B. 1. Create a VPC and a subnetwork in europe-west1. 2. Expose the application with an internal load balancer. 3. Create the new instance in the new subnetwork and use the load balancer's address as the endpoint.
+  - C. 1. Create a subnetwork in the same VPC, in europe-west1. 2. Use Cloud VPN to connect the two subnetworks. 3. Create the new instance in the new subnetwork and use the first instance's private address as the endpoint.
+  - D. 1. Create a VPC and a subnetwork in europe-west1. 2. Peer the 2 VPCs. 3. Create the new instance in the new subnetwork and use the first instance's private address as the endpoint.
+
+
+55. Your projects incurred more costs than you expected last month. Your research reveals that a development GKE container emitted a huge number of logs, which resulted in higher costs. You want to disable the logs quickly using the minimum number of steps. What should you do?
+
+  - **`A. 1. Go to the Logs ingestion window in Stackdriver Logging, and disable the log source for the GKE container resource.`**
+  - B. 1. Go to the Logs ingestion window in Stackdriver Logging, and disable the log source for the GKE Cluster Operations resource.
+  - C. 1. Go to the GKE console, and delete existing clusters. 2. Recreate a new cluster. 3. Clear the option to enable legacy Stackdriver Logging.
+  - D. 1. Go to the GKE console, and delete existing clusters. 2. Recreate a new cluster. 3. Clear the option to enable legacy Stackdriver Monitoring.
+
+
+56. You have a website hosted on App Engine standard environment. You want 1% of your users to see a new test version of the website. You want to minimize complexity. What should you do?
+
+  - A. Deploy the new version in the same application and use the --migrate option.
+  - **`B. Deploy the new version in the same application and use the --splits option to give a weight of 99 to the current version and a weight of 1 to the new version.`**
+  - C. Create a new App Engine application in the same project. Deploy the new version in that application. Use the App Engine library to proxy 1% of the requests to the new version.
+  - D. Create a new App Engine application in the same project. Deploy the new version in that application. Configure your network load balancer to send 1% of the traffic to that new application.
+
+
+57. You have a web application deployed as a managed instance group. You have a new version of the application to gradually deploy. Your web application is currently receiving live web traffic. You want to ensure that the available capacity does not decrease during the deployment. What should you do?
+
+  - A. Perform a rolling-action start-update with maxSurge set to 0 and maxUnavailable set to 1.
+  - **`B. Perform a rolling-action start-update with maxSurge set to 1 and maxUnavailable set to 0.`**
+  - C. Create a new managed instance group with an updated instance template. Add the group to the backend service for the load balancer. When all instances in the new managed instance group are healthy, delete the old managed instance group.
+  - D. Create a new instance template with the new application version. Update the existing managed instance group with the new instance template. Delete the instances in the managed instance group to allow the managed instance group to recreate the instance using the new instance template.
+
+
+58. You are building an application that stores relational data from users. Users across the globe will use this application. Your CTO is concerned about the scaling requirements because the size of the user base is unknown. You need to implement a database solution that can scale with your user growth with minimum configuration changes. Which storage solution should you use?
+  
+  - A. Cloud SQL
+  - B. Cloud Spanner
+  - C. Cloud Firestore
+  - D. Cloud Datastore
+
+
+59. You are the organization and billing administrator for your company. The engineering team has the Project Creator role on the organization. You do not want the engineering team to be able to link projects to the billing account. Only the finance team should be able to link a project to a billing account, but they should not be able to make any other changes to projects. What should you do?
+
+  - A. Assign the finance team only the Billing Account User role on the billing account.
+  - B. Assign the engineering team only the Billing Account User role on the billing account.
+  - **`C. Assign the finance team the Billing Account User role on the billing account and the Project Billing Manager role on the organization.`**
+  - D. Assign the engineering team the Billing Account User role on the billing account and the Project Billing Manager role on the organization.
+
+
+60. You have an application running in Google Kubernetes Engine (GKE) with cluster autoscaling enabled. The application exposes a TCP endpoint. There are several replicas of this application. You have a Compute Engine instance in the same region, but in another Virtual Private Cloud (VPC), called gce-network, that has no overlapping IP ranges with the first VPC. This instance needs to connect to the application on GKE. You want to minimize effort. What should you do?
+
+  - A. 1. In GKE, create a Service of type LoadBalancer that uses the application's Pods as backend. 2. Set the service's externalTrafficPolicy to Cluster. 3. Configure the Compute Engine instance to use the address of the load balancer that has been created.
+  - B. 1. In GKE, create a Service of type NodePort that uses the application's Pods as backend. 2. Create a Compute Engine instance called proxy with 2 network interfaces, one in each VPC. 3. Use iptables on this instance to forward traffic from gce-network to the GKE nodes. 4. Configure the Compute Engine instance to use the address of proxy in gce-network as endpoint.
+  - **`C. 1. In GKE, create a Service of type LoadBalancer that uses the application's Pods as backend. 2. Add an annotation to this service: cloud.google.com/load-balancer-type: Internal 3. Peer the two VPCs together. 4. Configure the Compute Engine instance to use the address of the load balancer that has been created.`**
+  - D. 1. In GKE, create a Service of type LoadBalancer that uses the application's Pods as backend. 2. Add a Cloud Armor Security Policy to the load balancer that whitelists the internal IPs of the MIG's instances. 3. Configure the Compute Engine instance to use the address of the load balancer that has been created.
+
+
+61. Your organization is a financial company that needs to store audit log files for 
+3 years. Your organization has hundreds of Google Cloud projects. You need 
+to implement a cost-effective approach for log file retention. What should you 
+do?
+• A. Create an export to the sink that saves logs from Cloud Audit to 
+BigQuery.
+• B. Create an export to the sink that saves logs from Cloud Audit to a 
+Coldline Storage bucket.
+• C. Write a custom script that uses logging API to copy the logs from 
+Stackdriver logs to BigQuery.
+
+
+62. You want to run a single caching HTTP reverse proxy on GCP for a latencysensitive website. This specific reverse proxy consumes almost no CPU. You 
+want to have a 30-GB in-memory cache, and need an additional 2 GB of 
+memory for the rest of the processes. You want to minimize cost. How 
+should you run this reverse proxy?
+• A. Create a Cloud Memorystore for Redis instance with 32-GB 
+capacity.
+• B. Run it on Compute Engine, and choose a custom instance type 
+with 6 vCPUs and 32 GB of memory.
+• C. Package it in a container image, and run it on Kubernetes Engine, 
+using n1-standard-32 instances as nodes.
+• D. Run it on Compute Engine, choose the instance type n1-
+standard-1, and add an SSD persistent disk of 32 GB.
+• D. Export these logs to Cloud Pub/Sub and write a Cloud Dataflow 
+pipeline to store logs to Cloud SQL.
+
+
+63. You are hosting an application on bare-metal servers in your own data center. 
+The application needs access to Cloud Storage. However, security policies 
+prevent the servers hosting the application from having public IP addresses 
+or access to the internet. You want to follow Google-recommended practices 
+to provide the application with access to Cloud Storage. What should you 
+do?
+• A. 1. Use nslookup to get the IP address for storage.googleapis.com. 
+2. Negotiate with the security team to be able to give a public IP 
+address to the servers. 3. Only allow egress traffic from those servers 
+to the IP addresses for storage.googleapis.com.
+• B. 1. Using Cloud VPN, create a VPN tunnel to a Virtual Private Cloud 
+(VPC) in Google Cloud. 2. In this VPC, create a Compute Engine 
+instance and install the Squid proxy server on this instance. 3. 
+Configure your servers to use that instance as a proxy to access 
+Cloud Storage.
+• C. 1. Use Migrate for Compute Engine (formerly known as Velostrata) 
+to migrate those servers to Compute Engine. 2. Create an internal load 
+balancer (ILB) that uses storage.googleapis.com as backend. 3. 
+Configure your new instances to use this ILB as proxy.
+• D. 1. Using Cloud VPN or Interconnect, create a tunnel to a VPC in 
+Google Cloud. 2. Use Cloud Router to create a custom route 
+advertisement for 199.36.153.4/30. Announce that network to your on-premises network through the VPN tunnel. 3. In your on-premises 
+network, configure your DNS server to resolve *.googleapis.com as a 
+CNAME to restricted.googleapis.com.
+
+
+64. You want to deploy an application on Cloud Run that processes messages 
+from a Cloud Pub/Sub topic. You want to follow Google-recommended 
+practices. What should you do?
+• A. 1. Create a Cloud Function that uses a Cloud Pub/Sub trigger on 
+that topic. 2. Call your application on Cloud Run from the Cloud 
+Function for every message.
+• B. 1. Grant the Pub/Sub Subscriber role to the service account used 
+by Cloud Run. 2. Create a Cloud Pub/Sub subscription for that topic. 
+3. Make your application pull messages from that subscription.
+• C. 1. Create a service account. 2. Give the Cloud Run Invoker role to 
+that service account for your Cloud Run application. 3. Create a Cloud 
+Pub/Sub subscription that uses that service account and uses your 
+Cloud Run application as the push endpoint.
+• D. 1. Deploy your application on Cloud Run on GKE with the 
+connectivity set to Internal. 2. Create a Cloud Pub/Sub subscription 
+for that topic. 3. In the same Google Kubernetes Engine cluster as 
+your application, deploy a container that takes the messages and 
+sends them to your application.
+
+
+65. You need to deploy an application, which is packaged in a container image, 
+in a new project. The application exposes an HTTP endpoint and receives 
+very few requests per day. You want to minimize costs. What should you do?
+• A. Deploy the container on Cloud Run.
+• B. Deploy the container on Cloud Run on GKE.
+• C. Deploy the container on App Engine Flexible.
+• D. Deploy the container on GKE with cluster autoscaling and 
+horizontal pod autoscaling enabled.
+
+
+66. Your company has an existing GCP organization with hundreds of projects 
+and a billing account. Your company recently acquired another company that 
+also has hundreds of projects and its own billing account. You would like to 
+consolidate all GCP costs of both GCP organizations onto a single invoice. 
+You would like to consolidate all costs as of tomorrow. What should you do?
+• A. Link the acquired company”s projects to your company's billing 
+account.
+• B. Configure the acquired company's billing account and your 
+company's billing account to export the billing data into the same 
+BigQuery dataset.
+• C. Migrate the acquired company”s projects into your company”s 
+GCP organization. Link the migrated projects to your company's billing 
+account.
+• D. Create a new GCP organization and a new billing account. Migrate 
+the acquired company's projects and your company's projects into the 
+new GCP organization and link the projects to the new billing account.
+
+
+67. You built an application on Google Cloud that uses Cloud Spanner. Your support team needs to monitor the environment but should not have access 
+to table data. You need a streamlined solution to grant the correct permissions to your support team, and you want to follow Google-recommended practices. What should you do?
+
+  - A. Add the support team group to the roles/monitoring.viewer role.
+  - B. Add the support team group to the roles/spanner.databaseUser role.
+  - C. Add the support team group to the roles/spanner.databaseReader role.
+  - D. Add the support team group to the roles/stackdriver.accounts.viewer role.
+
+
+68. For analysis purposes, you need to send all the logs from all of your Compute Engine instances to a BigQuery dataset called platform-logs. You have already installed the Cloud Logging agent on all the instances. You want to minimize cost. What should you do?
+
+  - A. 1. Give the BigQuery Data Editor role on the platform-logs dataset to the service accounts used by your instances. 2. Update your instances” metadata to add the following value: logs-destination: bq://platform-logs.
+  - B. 1. In Cloud Logging, create a logs export with a Cloud Pub/Sub topic called logs as a sink. 2. Create a Cloud Function that is triggered by messages in the logs topic. 3. Configure that Cloud Function to drop logs that are not from Compute Engine and to insert Compute Engine logs in the platform-logs dataset.
+  - C. 1. In Cloud Logging, create a filter to view only Compute Engine logs. 2. Click Create Export. 3. Choose BigQuery as Sink Service, and the platform-logs dataset as Sink Destination.
+  - D. 1. Create a Cloud Function that has the BigQuery User role on the platform-logs dataset. 2. Configure this Cloud Function to create a BigQuery Job that executes this query: INSERT INTO dataset.platform-logs (timestamp, log) SELECT timestamp, log FROM compute.logs WHERE timestamp > DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY) 3. Use Cloud Scheduler to trigger this Cloud Function once a day.
+
+
+69. You are using Deployment Manager to create a Google Kubernetes Engine cluster. Using the same Deployment Manager deployment, you also want to create a DaemonSet in the kube-system namespace of the cluster. You want a solution that uses the fewest possible services. What should you do?
+
+  - A. Add the cluster's API as a new Type Provider in Deployment Manager, and use the new type to create the DaemonSet.
+  - B. Use the Deployment Manager Runtime Configurator to create a new Config resource that contains the DaemonSet definition.
+  - C. With Deployment Manager, create a Compute Engine instance with a startup script that uses kubectl to create the DaemonSet.
+  - D. In the cluster”s definition in Deployment Manager, add a metadata that has kube-system as key and the DaemonSet manifest as value.
+
+
+70. You are building an application that will run in your data center. The application will use Google Cloud Platform (GCP) services like AutoML. You created a service account that has appropriate access to AutoML. You need to enable authentication to the APIs from your on-premises environment. What should you do?
+
+  - A. Use service account credentials in your on-premises application.
+  - B. Use gcloud to create a key file for the service account that has appropriate permissions.
+  - C. Set up direct interconnect between your data center and Google Cloud Platform to enable authentication for your on-premises applications.
+  - D. Go to the IAM & admin console, grant a user account permissions similar to the service account permissions, and use this user account for authentication from your data center.
