@@ -647,3 +647,60 @@ to table data. You need a streamlined solution to grant the correct permissions 
   - B. Use gcloud to create a key file for the service account that has appropriate permissions.
   - C. Set up direct interconnect between your data center and Google Cloud Platform to enable authentication for your on-premises applications.
   - D. Go to the IAM & admin console, grant a user account permissions similar to the service account permissions, and use this user account for authentication from your data center.
+
+
+71. You are using Container Registry to centrally store your company”s container images in a separate project. In another project, you want to create a Google Kubernetes Engine (GKE) cluster. You want to ensure that Kubernetes can download images from Container Registry. What should you do?
+
+  - A. In the project where the images are stored, grant the Storage Object Viewer IAM role to the service account used by the Kubernetes nodes.
+  - B. When you create the GKE cluster, choose the Allow full access to all Cloud APIs option under "Access scopes".
+  - C. Create a service account, and give it access to Cloud Storage. Create a P12 key for this service account and use it as an imagePullSecrets in Kubernetes.
+  - D. Configure the ACLs on each image in Cloud Storage to give read-only access to the default Compute Engine service account.
+
+
+72. You deployed a new application inside your Google Kubernetes Engine cluster using the YAML file specified below.
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment
+spec:
+  selector:
+    matchLabels:
+      app: myapp
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp
+        image: myapp:1.1
+        ports:
+        - containerPort: 80
+        
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+spec:
+  ports:
+  - port: 8000
+    targetPort: 80
+    protocol: TCP
+  selector:
+    app: myapp
+```
+You check the status of the deployed pods and notice that one of them is still in PENDING status:
+```
+kubectl get pods -l app=myapp
+NAME                                  READY     STATUS      RESTART     AGE
+myapp-deployment-58ddbbb995-lp86m     0/1       Pending     0           9m
+myapp-deployment-58ddbbb995-qjpkg     1/1       Running     0           9m
+```
+You want to find out why the pod is stuck in pending status. What should you do?
+
+  - A. Review details of the myapp-service Service object and check for error messages.
+  - B. Review details of the myapp-deployment Deployment object and check for error messages.
+  - C. Review details of myapp-deployment-58ddbbb995-lp86m Pod and check for warning messages.
+  - D. View logs of the container in myapp-deployment-58ddbbb995-lp86m pod and check for warning messages.
