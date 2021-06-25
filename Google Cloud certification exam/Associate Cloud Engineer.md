@@ -450,7 +450,41 @@ Each tier has a service account that is associated with all instances within it.
 ◉ Instances in tier #2 must communicate with tier #3.
 What should you do?
 
-  - A. 1. Create an ingress firewall rule with the following settings: ◉ Targets: all instances ◉ Source filter: IP ranges (with the range set to 10.0.2.0/24) ◉ Protocols: allow all 2. Create an ingress firewall rule with the following settings: ◉ Targets: all instances ◉ Source filter: IP ranges (with the range set to 10.0.1.0/24) ◉ Protocols: allow all
-  - B. 1. Create an ingress firewall rule with the following settings: ◉ Targets: all instances with tier #2 service account ◉ Source filter: all instances with tier #1 service account ◉ Protocols: allow TCP:8080 2. Create an ingress firewall rule with the following settings: ◉ Targets: all instances with tier #3 service account ◉ Source filter: all instances with tier #2 service account ◉ Protocols: allow TCP: 8080
-  - C. 1. Create an ingress firewall rule with the following settings: ◉ Targets: all instances with tier #2 service account ◉ Source filter: all instances with tier #1 service account ◉ Protocols: allow all 2. Create an ingress firewall rule with the following settings: ◉ Targets: all instances with tier #3 service account ◉ Source filter: all instances with tier #2 service account ◉ Protocols: allow all
-  - D. 1. Create an egress firewall rule with the following settings: ◉ Targets: all instances ◉ Source filter: IP ranges (with the range set to 10.0.2.0/24) ◉ Protocols: allow TCP: 8080 2. Create an egress firewall rule with the following settings: ◉ Targets: all instances ◉ Source filter: IP ranges (with the range set to 10.0.1.0/24) ◉ Protocols: allow TCP: 8080
+![image](https://raw.githubusercontent.com/djwackey/notes/master/Google%20Cloud%20certification%20exam/images/53.png)
+
+  - A.
+    1. Create an ingress firewall rule with the following settings:
+      ◉ Targets: all instances 
+      ◉ Source filter: IP ranges (with the range set to 10.0.2.0/24) 
+      ◉ Protocols: allow all 
+    2. Create an ingress firewall rule with the following settings: 
+      ◉ Targets: all instances 
+      ◉ Source filter: IP ranges (with the range set to 10.0.1.0/24) 
+      ◉ Protocols: allow all
+  - **`B.`**
+    **`1. Create an ingress firewall rule with the following settings: 
+      ◉ Targets: all instances with tier #2 service account 
+      ◉ Source filter: all instances with tier #1 service account 
+      ◉ Protocols: allow TCP:8080 `**
+    **`2. Create an ingress firewall rule with the following settings: 
+      ◉ Targets: all instances with tier #3 service account 
+      ◉ Source filter: all instances with tier #2 service account 
+      ◉ Protocols: allow TCP: 8080`**
+  - C.
+    1. Create an ingress firewall rule with the following settings: 
+      ◉ Targets: all instances with tier #2 service account 
+      ◉ Source filter: all instances with tier #1 service account 
+      ◉ Protocols: allow all 
+    2. Create an ingress firewall rule with the following settings: 
+      ◉ Targets: all instances with tier #3 service account 
+      ◉ Source filter: all instances with tier #2 service account 
+      ◉ Protocols: allow all
+  - D. 
+    1. Create an egress firewall rule with the following settings: 
+      ◉ Targets: all instances 
+      ◉ Source filter: IP ranges (with the range set to 10.0.2.0/24) 
+      ◉ Protocols: allow TCP: 8080 
+    2. Create an egress firewall rule with the following settings: 
+      ◉ Targets: all instances 
+      ◉ Source filter: IP ranges (with the range set to 10.0.1.0/24) 
+      ◉ Protocols: allow TCP: 8080
