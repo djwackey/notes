@@ -361,3 +361,96 @@ You need to refactor this configuration so that the database password is not sto
   - **`B. Store the database password inside a Secret object. Modify the YAML file to populate the DB_PASSWORD environment variable from the Secret.`**
   - C. Store the database password inside a ConfigMap object. Modify the YAML file to populate the DB_PASSWORD environment variable from the ConfigMap.
   - D. Store the database password in a file inside a Kubernetes persistent volume, and use a persistent volume claim to mount the volume to the container.
+
+
+43. You are running an application on multiple virtual machines within a managed instance group and have autoscaling enabled. The autoscaling policy is configured so that additional instances are added to the group if the CPU utilization of instances goes above 80%. VMs are added until the instance group reaches its maximum limit of five VMs or until CPU utilization of instances lowers to 80%. The initial delay for HTTP health checks against the instances is set to 30 seconds. The virtual machine instances take around three minutes to become available for users. You observe that when the instance group autoscales, it adds more instances then necessary to support the levels of end-user traffic. You want to properly maintain instance group sizes when autoscaling. What should you do?
+
+  - A. Set the maximum number of instances to 1.
+  - B. Decrease the maximum number of instances to 3.
+  - C. Use a TCP health check instead of an HTTP health check.
+  - **`D. Increase the initial delay of the HTTP health check to 200 seconds.`**
+
+
+44. You need to select and configure compute resources for a set of batch processing jobs. These jobs take around 2 hours to complete and are run nightly. You want to minimize service costs. What should you do?
+
+  - A. Select Google Kubernetes Engine. Use a single-node cluster with a small instance type.
+  - B. Select Google Kubernetes Engine. Use a three-node cluster with micro instance types.
+  - **`C. Select Compute Engine. Use preemptible VM instances of the appropriate standard machine type.`**
+  - D. Select Compute Engine. Use VM instance types that support micro bursting.
+
+
+45. You recently deployed a new version of an application to App Engine and then discovered a bug in the release. You need to immediately revert to the prior version of the application. What should you do?
+
+  - A. Run gcloud app restore.
+  - B. On the App Engine page of the GCP Console, select the application that needs to be reverted and click Revert.
+  - **`C. On the App Engine Versions page of the GCP Console, route 100% of the traffic to the previous version.`**
+  - D. Deploy the original version as a separate application. Then go to App Engine settings and split traffic between applications so that the original version serves 100% of the requests.
+
+
+46. You deployed an App Engine application using gcloud app deploy, but it did not deploy to the intended project. You want to find out why this happened and where the application deployed. What should you do?
+
+  - A. Check the app.yaml file for your application and check project settings.
+  - B. Check the web-application.xml file for your application and check project settings.
+  - C. Go to Deployment Manager and review settings for deployment of applications.
+  - D. Go to Cloud Shell and run gcloud config list to review the Google Cloud configuration used for deployment.
+
+
+47. You want to configure 10 Compute Engine instances for availability when maintenance occurs. Your requirements state that these instances should attempt to automatically restart if they crash. Also, the instances should be highly available including during system maintenance. What should you do?
+
+  - A. Create an instance template for the instances. Set the "Automatic Restart" to on. Set the "On-host maintenance" to Migrate VM instance. Add the instance template to an instance group.
+  - B. Create an instance template for the instances. Set "Automatic Restart" to off. Set "On-host maintenance" to Terminate VM instances. Add the instance template to an instance group.
+  - C. Create an instance group for the instances. Set the "Autohealing" health check to healthy (HTTP).
+  - D. Create an instance group for the instance. Verify that the "Advanced creation options" setting for "do not retry machine creation" is set to off.
+
+
+48. You host a static website on Cloud Storage. Recently, you began to include links to PDF files on this site. Currently, when users click on the links to these PDF files, their browsers prompt them to save the file onto their local system. Instead, you want the clicked PDF files to be displayed within the browser window directly, without prompting the user to save the file locally. What should you do?
+
+  - A. Enable Cloud CDN on the website frontend.
+  - B. Enable "Share publicly" on the PDF file objects.
+  - **`C. Set Content-Type metadata to application/pdf on the PDF file objects.`**
+  - D. Add a label to the storage bucket with a key of Content-Type and value of application/pdf.
+
+
+49. You have a virtual machine that is currently configured with 2 vCPUs and 4 GB of memory. It is running out of memory. You want to upgrade the virtual machine to have 8 GB of memory. What should you do?
+
+  - A. Rely on live migration to move the workload to a machine with more memory.
+  - B. Use gcloud to add metadata to the VM. Set the key to required-memory-size and the value to 8 GB.
+  - C. Stop the VM, change the machine type to n1-standard-8, and start the VM.
+  - D. Stop the VM, increase the memory to 8 GB, and start the VM.
+
+
+50. You have production and test workloads that you want to deploy on Compute Engine. Production VMs need to be in a different subnet than the test VMs. All the VMs must be able to reach each other over Internal IP without creating additional routes. You need to set up VPC and the 2 subnets. Which configuration meets these requirements?
+
+  - A. Create a single custom VPC with 2 subnets. Create each subnet in a different region and with a different CIDR range.
+  - B. Create a single custom VPC with 2 subnets. Create each subnet in the same region and with the same CIDR range.
+  - C. Create 2 custom VPCs, each with a single subnet. Create each subnet in a different region and with a different CIDR range.
+  - D. Create 2 custom VPCs, each with a single subnet. Create each subnet in the same region and with the same CIDR range.
+
+
+51. You need to create an autoscaling managed instance group for an HTTPS web application. You want to make sure that unhealthy VMs are recreated. What should you do?
+
+  - A. Create a health check on port 443 and use that when creating the Managed Instance Group.
+  - B. Select Multi-Zone instead of Single-Zone when creating the Managed Instance Group.
+  - C. In the Instance Template, add the label "health-check".
+  - D. In the Instance Template, add a startup script that sends a heartbeat to the metadata server.
+
+
+52. Your company has a Google Cloud Platform project that uses BigQuery for data warehousing. Your data science team changes frequently and has few members. You need to allow members of this team to perform queries. You want to follow Google-recommended practices. What should you do?
+
+  - A. 1. Create an IAM entry for each data scientist's user account. 2. Assign the BigQuery jobUser role to the group.
+  - B. 1. Create an IAM entry for each data scientist's user account. 2. Assign the BigQuery dataViewer user role to the group.
+  - C. 1. Create a dedicated Google group in Cloud Identity. 2. Add each data scientist's user account to the group. 3. Assign the BigQuery jobUser role to the group.
+  - D. 1. Create a dedicated Google group in Cloud Identity. 2. Add each data scientist's user account to the group. 3. Assign the BigQuery dataViewer user role to the group.
+
+
+53. Your company has a 3-tier solution running on Compute Engine. The configuration of the current infrastructure is shown below.
+
+Each tier has a service account that is associated with all instances within it. You need to enable communication on TCP port 8080 between tiers as follows:
+◉ Instances in tier #1 must communicate with tier #2.
+◉ Instances in tier #2 must communicate with tier #3.
+What should you do?
+
+  - A. 1. Create an ingress firewall rule with the following settings: ◉ Targets: all instances ◉ Source filter: IP ranges (with the range set to 10.0.2.0/24) ◉ Protocols: allow all 2. Create an ingress firewall rule with the following settings: ◉ Targets: all instances ◉ Source filter: IP ranges (with the range set to 10.0.1.0/24) ◉ Protocols: allow all
+  - B. 1. Create an ingress firewall rule with the following settings: ◉ Targets: all instances with tier #2 service account ◉ Source filter: all instances with tier #1 service account ◉ Protocols: allow TCP:8080 2. Create an ingress firewall rule with the following settings: ◉ Targets: all instances with tier #3 service account ◉ Source filter: all instances with tier #2 service account ◉ Protocols: allow TCP: 8080
+  - C. 1. Create an ingress firewall rule with the following settings: ◉ Targets: all instances with tier #2 service account ◉ Source filter: all instances with tier #1 service account ◉ Protocols: allow all 2. Create an ingress firewall rule with the following settings: ◉ Targets: all instances with tier #3 service account ◉ Source filter: all instances with tier #2 service account ◉ Protocols: allow all
+  - D. 1. Create an egress firewall rule with the following settings: ◉ Targets: all instances ◉ Source filter: IP ranges (with the range set to 10.0.2.0/24) ◉ Protocols: allow TCP: 8080 2. Create an egress firewall rule with the following settings: ◉ Targets: all instances ◉ Source filter: IP ranges (with the range set to 10.0.1.0/24) ◉ Protocols: allow TCP: 8080
