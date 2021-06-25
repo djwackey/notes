@@ -306,3 +306,58 @@
   - D. Run gcloud iam roles describe roles/spanner.viewer - -project my-project. Add the users to a new group. Add the group to the role.
 
 
+39. You create a new Google Kubernetes Engine (GKE) cluster and want to make sure that it always runs a supported and stable version of Kubernetes. What should you do?
+
+  - A. Enable the Node Auto-Repair feature for your GKE cluster.
+  - **`B. Enable the Node Auto-Upgrades feature for your GKE cluster.`**
+  - C. Select the latest available cluster version for your GKE cluster.
+  - D. Select Container-Optimized OS (cos) as a node image for your GKE cluster.
+
+
+40. You have an instance group that you want to load balance. You want the load balancer to terminate the client SSL session. The instance group is used to serve a public web application over HTTPS. You want to follow Google-recommended practices. What should you do?
+
+  - **`A. Configure an HTTP(S) load balancer.`**
+  - B. Configure an internal TCP load balancer.
+  - C. Configure an external SSL proxy load balancer.
+  - D. Configure an external TCP proxy load balancer.
+
+
+41. You have 32 GB of data in a single file that you need to upload to a Nearline Storage bucket. The WAN connection you are using is rated at 1 Gbps, and you are the only one on the connection. You want to use as much of the rated 1 Gbps as possible to transfer the file rapidly. How should you upload the file?
+
+  - A. Use the GCP Console to transfer the file instead of gsutil.
+  - B. Enable parallel composite uploads using gsutil on the file transfer.
+  - C. Decrease the TCP window size on the machine initiating the transfer.
+  - D. Change the storage class of the bucket from Nearline to Multi-Regional.
+
+
+42. You've deployed a microservice called myapp1 to a Google Kubernetes Engine cluster using the YAML file specified below:
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp1-deployment
+spec:
+  selector:
+    matchLabels:
+      app: myapp1
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: myapp1
+    spec:
+      containers:
+      - name: main-container
+        image: gcr.io/my-company-repo/myapp1:1.4
+        env:
+        - name: DB_PASSWORD
+          value: "t0ugh2guess!"
+        ports:
+        - containerPort: 8080
+```
+You need to refactor this configuration so that the database password is not stored in plain text. You want to follow Google-recommended practices. What should you do?
+
+  - A. Store the database password inside the Docker image of the container, not in the YAML file.
+  - **`B. Store the database password inside a Secret object. Modify the YAML file to populate the DB_PASSWORD environment variable from the Secret.`**
+  - C. Store the database password inside a ConfigMap object. Modify the YAML file to populate the DB_PASSWORD environment variable from the ConfigMap.
+  - D. Store the database password in a file inside a Kubernetes persistent volume, and use a persistent volume claim to mount the volume to the container.
