@@ -12,7 +12,7 @@ Correct Answer: B
 Google Compute Engine enables users to launch virtual machines (VMs) on demand. VMs can be launched from the standard images or custom images created by users.
 Managed instance groups offer autoscaling capabilities that allow you to automatically add or remove instances from a managed instance group based on increases or decreases in load. Autoscaling helps your applications gracefully handle increases in traffic and reduces cost when the need for resources is lower.
 Incorrect Answers:
-B: There is no mention of incoming IP data traffic for the custom C++ applications.
+A: There is no mention of incoming IP data traffic for the custom C++ applications.
 C: Apache Hadoop is not fit for testing C++ applications. Apache Hadoop is an open-source software framework used for distributed storage and processing of datasets of big data using the MapReduce programming model.
 D: Google App Engine is intended to be used for web applications.
 Google App Engine (often referred to as GAE or simply App Engine) is a web framework and cloud computing platform for developing and hosting web applications in Google-managed data centers.
