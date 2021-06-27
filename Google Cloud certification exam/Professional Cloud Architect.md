@@ -424,3 +424,127 @@ Which networking approach should you use?
   - B. Google Cloud VPN connected to the data center network
   - C. A NAT and TLS translation gateway installed on-premises
   - D. A Google Compute Engine instance with a VPN server installed connected to the data center network
+
+
+41. Auditors visit your teams every 12 months and ask to review all the Google Cloud Identity and Access Management (Cloud IAM) policy changes in the previous 12 months. You want to streamline and expedite the analysis and audit process.
+What should you do?
+
+  - A. Create custom Google Stackdriver alerts and send them to the auditor
+  - B. Enable Logging export to Google BigQuery and use ACLs and views to scope the data shared with the auditor
+  - C. Use cloud functions to transfer log entries to Google Cloud SQL and use ACLs and views to limit an auditor's view
+  - D. Enable Google Cloud Storage (GCS) log export to audit logs into a GCS bucket and delegate access to the bucket
+
+
+42. You are designing a large distributed application with 30 microservices. Each of your distributed microservices needs to connect to a database back-end. You want to store the credentials securely.
+Where should you store the credentials?
+
+  - A. In the source code
+  - B. In an environment variable
+  - C. In a secret management system
+  - D. In a config file that has restricted access through ACLs
+
+
+43. A lead engineer wrote a custom tool that deploys virtual machines in the legacy data center. He wants to migrate the custom tool to the new cloud environment.
+You want to advocate for the adoption of Google Cloud Deployment Manager.
+What are two business risks of migrating to Cloud Deployment Manager? (Choose two.)
+
+  - A. Cloud Deployment Manager uses Python
+  - B. Cloud Deployment Manager APIs could be deprecated in the future
+  - C. Cloud Deployment Manager is unfamiliar to the company's engineers
+  - D. Cloud Deployment Manager requires a Google APIs service account to run
+  - E. Cloud Deployment Manager can be used to permanently delete cloud resources
+  - F. Cloud Deployment Manager only supports automation of Google Cloud resources
+
+
+44. A development manager is building a new application. He asks you to review his requirements and identify what cloud technologies he can use to meet them. The application must:
+1. Be based on open-source technology for cloud portability
+2. Dynamically scale compute capacity based on demand
+3. Support continuous software delivery
+4. Run multiple segregated copies of the same application stack
+5. Deploy application bundles using dynamic templates
+6. Route network traffic to specific services based on URL
+Which combination of technologies will meet all of his requirements?
+
+  - A. Google Kubernetes Engine, Jenkins, and Helm
+  - B. Google Kubernetes Engine and Cloud Load Balancing
+  - C. Google Kubernetes Engine and Cloud Deployment Manager
+  - D. Google Kubernetes Engine, Jenkins, and Cloud Load Balancing
+
+
+45. You have created several pre-emptible Linux virtual machine instances using Google Compute Engine. You want to properly shut down your application before the virtual machines are preempted.
+What should you do?
+
+  - A. Create a shutdown script named k99.shutdown in the /etc/rc.6.d/ directory
+  - B. Create a shutdown script registered as a xinetd service in Linux and configure a Stackdriver endpoint check to call the service
+  - C. Create a shutdown script and use it as the value for a new metadata entry with the key shutdown-script in the Cloud Platform Console when you create the new virtual machine instance
+  - D. Create a shutdown script, registered as a xinetd service in Linux, and use the gcloud compute instances add-metadata command to specify the service URL as the value for a new metadata entry with the key shutdown-script-url
+
+
+46. Your organization has a 3-tier web application deployed in the same network on Google Cloud Platform. Each tier (web, API, and database) scales independently of the others. Network traffic should flow through the web to the API tier and then on to the database tier. Traffic should not flow between the web and the database tier.
+How should you configure the network?
+
+  - A. Add each tier to a different subnetwork
+  - B. Set up software based firewalls on individual VMs
+  - C. Add tags to each tier and set up routes to allow the desired traffic flow
+  - D. Add tags to each tier and set up firewall rules to allow the desired traffic flow
+
+
+47. Your development team has installed a new Linux kernel module on the batch servers in Google Compute Engine (GCE) virtual machines (VMs) to speed up the nightly batch process. Two days after the installation, 50% of the batch servers failed the nightly batch run. You want to collect details on the failure to pass back to the development team.
+Which three actions should you take? (Choose three.)
+
+  - A. Use Stackdriver Logging to search for the module log entries
+  - B. Read the debug GCE Activity log using the API or Cloud Console
+  - C. Use gcloud or Cloud Console to connect to the serial console and observe the logs
+  - D. Identify whether a live migration event of the failed server occurred, using in the activity log
+  - E. Adjust the Google Stackdriver timeline to match the failure time, and observe the batch server metrics
+  - F. Export a debug VM into an image, and run the image on a local server where kernel log messages will be displayed on the native screen
+
+
+48. Your company wants to try out the cloud with low risk. They want to archive approximately 100 TB of their log data to the cloud and test the analytics features available to them there, while also retaining that data as a long-term disaster recovery backup.
+Which two steps should you take? (Choose two.)
+
+  - A. Load logs into Google BigQuery
+  - B. Load logs into Google Cloud SQL
+  - C. Import logs into Google Stackdriver
+  - D. Insert logs into Google Cloud Bigtable
+  - E. Upload log files into Google Cloud Storage
+
+
+49. You created a pipeline that can deploy your source code changes to your infrastructure in instance groups for self-healing. One of the changes negatively affects your key performance indicator. You are not sure how to fix it, and investigation could take up to a week.
+What should you do?
+
+  - A. Log in to a server, and iterate on the fox locally
+  - B. Revert the source code change, and rerun the deployment pipeline
+  - C. Log into the servers with the bad code change, and swap in the previous code
+  - D. Change the instance group template to the previous one, and delete all instances
+
+
+50. Your organization wants to control IAM policies for different departments independently, but centrally.
+Which approach should you take?
+
+  - A. Multiple Organizations with multiple Folders
+  - B. Multiple Organizations, one for each department
+  - C. A single Organization with Folders for each department
+  - D. A single Organization with multiple projects, each with a central owner
+
+
+51. You deploy your custom Java application to Google App Engine. It fails to deploy and gives you the following stack trace.
+What should you do?
+```
+java.lang.SecurityException: SHA1 digest error for com/Altostrat/CloakedServlet.class
+    at com.google.appengine.runtime.Request.process-d36f818a24b8cf1d (Request.java)
+    at sun.security.util.ManifestEntryVerifier.verify (ManifestEntryVerifier.java:210)
+    at java.util.jar.JarVerifier.processEntry (JarVerifier.java:218)
+    at java.util.jar.JarVerifier.update (JarVerifier.java:205)
+    at java.util.jar.JarVerifiersVerifierStream.read (JarVerifier.java:428)
+    at sun.misc.Resource.getBytes (Resource.java:124)
+    at java.net.URL.ClassLoader.defineClass (URLClassLoader.java:273)
+    at sun.reflect.GeneratedMethodAccessor5.invoke (Unknown Source)
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke (DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke (Method.java:616)
+    at.java.lang.ClassLoader.loadClass (ClassLoader.java:266)
+```
+
+  - A. Upload missing JAR files and redeploy your application.
+  - B. Digitally sign all of your JAR files and redeploy your application
+  - C. Recompile the CLoakedServlet class using and MD5 hash instead of SHA1
