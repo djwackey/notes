@@ -39,7 +39,7 @@ Which process should you implement?
   - D. ג€¢ Append metadata to file body ג€¢ Compress individual files ג€¢ Name files with a random prefix pattern ג€¢ Save files to one bucket
 
 
-4. A recent audit revealed that a new network was created in your GCP project. In this network, a GCE instance has an SSH port open to the world. You want to discover this networkג€™s origin.
+4. A recent audit revealed that a new network was created in your GCP project. In this network, a GCE instance has an SSH port open to the world. You want to discover this network's origin.
 What should you do?
 
   - A. Search for Create VM entry in the Stackdriver alerting console
@@ -206,15 +206,15 @@ What should you do?
   - D. Help them upgrade their current tool to take advantage of any new features
 
 
-19. You need to reduce the number of unplanned rollbacks of erroneous production deployments in your companyג€™s web hosting platform. Improvement to the QA/
+19. You need to reduce the number of unplanned rollbacks of erroneous production deployments in your company's web hosting platform. Improvement to the QA/
 Test processes accomplished an 80% reduction.
 Which additional two approaches can you take to further reduce the rollbacks? (Choose two.)
 
   - A. Introduce a green-blue deployment model
   - B. Replace the QA environment with canary releases
   - C. Fragment the monolithic platform into microservices
-  - D. Reduce the platformג€™s dependency on relational database systems
-  - E. Replace the platformג€™s relational database systems with a NoSQL database
+  - D. Reduce the platform's dependency on relational database systems
+  - E. Replace the platform's relational database systems with a NoSQL database
 
 
 20. To reduce costs, the Director of Engineering has required all developers to move their development infrastructure resources from on-premises virtual machines
@@ -306,7 +306,7 @@ How should you design your architecture?
   - E. Enable Logging export to Google BigQuery and use ACLs and views to scope the data shared with the auditor
 
 
-29. You have been asked to select the storage system for the click-data of your companyג€™s large portfolio of websites. This data is streamed in from a custom website analytics package at a typical rate of 6,000 clicks per minute. With bursts of up to 8,500 clicks per second. It must have been stored for future analysis by your data science and user experience teams.
+29. You have been asked to select the storage system for the click-data of your company's large portfolio of websites. This data is streamed in from a custom website analytics package at a typical rate of 6,000 clicks per minute. With bursts of up to 8,500 clicks per second. It must have been stored for future analysis by your data science and user experience teams.
 Which storage infrastructure should you choose?
 
   - A. Google Cloud SQL
@@ -341,3 +341,86 @@ What should they change to get better performance from this system?
   - C. Dynamically resize the SSD persistent disk to 500 GB
   - D. Migrate their performance metrics warehouse to BigQuery
   - E. Modify all of their batch jobs to use bulk inserts into the database
+
+
+33. You want to optimize the performance of an accurate, real-time, weather-charting application. The data comes from 50,000 sensors sending 10 readings a second, in the format of a timestamp and sensor reading.
+Where should you store the data?
+
+  - A. Google BigQuery
+  - B. Google Cloud SQL
+  - C. Google Cloud Bigtable
+  - D. Google Cloud Storage
+
+
+34. Your company's user-feedback portal comprises a standard LAMP stack replicated across two zones. It is deployed in the us-central1 region and uses autoscaled managed instance groups on all layers, except the database. Currently, only a small group of select customers have access to the portal. The portal meets a
+99,99% availability SLA under these conditions. However next quarter, your company will be making the portal available to all users, including unauthenticated users. You need to develop a resiliency testing strategy to ensure the system maintains the SLA once they introduce additional user load.
+What should you do?
+
+  - A. Capture existing users input, and replay captured user load until autoscale is triggered on all layers. At the same time, terminate all resources in one of the zones
+  - B. Create synthetic random user input, replay synthetic load until autoscale logic is triggered on at least one layer, and introduce ג€chaosג€ to the system by terminating random resources on both zones
+  - C. Expose the new system to a larger group of users, and increase group size each day until autoscale logic is triggered on all layers. At the same time, terminate random resources on both zones
+  - D. Capture existing users input, and replay captured user load until resource utilization crosses 80%. Also, derive estimated number of users based on existing user's usage of the app, and deploy enough resources to handle 200% of expected load
+
+
+35. One of the developers on your team deployed their application in Google Container Engine with the Dockerfile below. They report that their application deployments are taking too long.
+```
+FROM ubuntu:16.04
+COPY . /src
+RUN apt-get update && apt-get install -y python python-pip
+RUN pip install -r requirements.txt
+```
+You want to optimize this Dockerfile for faster deployment times without adversely affecting the app's functionality.
+Which two actions should you take? (Choose two.)
+
+  - A. Remove Python after running pip
+  - B. Remove dependencies from requirements.txt
+  - C. Use a slimmed-down base image like Alpine Linux
+  - D. Use larger machine types for your Google Container Engine node pools
+  - E. Copy the source after he package dependencies (Python and pip) are installed
+
+
+36. Your solution is producing performance bugs in production that you did not see in staging and test environments. You want to adjust your test and deployment procedures to avoid this problem in the future.
+What should you do?
+
+  - A. Deploy fewer changes to production
+  - B. Deploy smaller changes to production
+  - C. Increase the load on your test and staging environments
+  - D. Deploy changes to a small subset of users before rolling out to production
+
+
+37. A small number of API requests to your microservices-based application take a very long time. You know that each request to the API can traverse many services.
+You want to know which service takes the longest in those cases.
+What should you do?
+
+  - A. Set timeouts on your application so that you can fail requests faster
+  - B. Send custom metrics for each of your requests to Stackdriver Monitoring
+  - C. Use Stackdriver Monitoring to look for insights that show when your API latencies are high
+  - D. Instrument your application with Stackdriver Trace in order to break down the request latencies at each microservice
+
+
+38. During a high traffic portion of the day, one of your relational databases crashes, but the replica is never promoted to a master. You want to avoid this in the future.
+What should you do?
+
+  - A. Use a different database
+  - B. Choose larger instances for your database
+  - C. Create snapshots of your database more regularly
+  - D. Implement routinely scheduled failovers of your databases
+
+
+39. Your organization requires that metrics from all applications be retained for 5 years for future analysis in possible legal proceedings.
+Which approach should you use?
+
+  - A. Grant the security team access to the logs in each Project
+  - B. Configure Stackdriver Monitoring for all Projects, and export to BigQuery
+  - C. Configure Stackdriver Monitoring for all Projects with the default retention policies
+  - D. Configure Stackdriver Monitoring for all Projects, and export to Google Cloud Storage
+
+
+40. Your company has decided to build a backup replica of their on-premises user authentication PostgreSQL database on Google Cloud Platform. The database is 4
+TB, and large updates are frequent. Replication requires private address space communication.
+Which networking approach should you use?
+
+  - A. Google Cloud Dedicated Interconnect
+  - B. Google Cloud VPN connected to the data center network
+  - C. A NAT and TLS translation gateway installed on-premises
+  - D. A Google Compute Engine instance with a VPN server installed connected to the data center network
