@@ -654,6 +654,136 @@ You want to use Google-recommended practices to detect anomalies in your company
 64. You have found an error in your App Engine application caused by missing Cloud Datastore indexes. You have created a YAML file with the required indexes and want to deploy these new indexes to Cloud Datastore. What should you do?
 
   - A. Point gcloud datastore create-indexes to your configuration file
-  - B. Upload the configuration file to App Engineג€™s default Cloud Storage bucket, and have App Engine detect the new indexes
+  - B. Upload the configuration file to App Engine's default Cloud Storage bucket, and have App Engine detect the new indexes
   - C. In the GCP Console, use Datastore Admin to delete the current indexes and upload the new configuration file
   - D. Create an HTTP request to the built-in python module to send the index configuration file to your application
+
+
+65. You have an application that will run on Compute Engine. You need to design an architecture that takes into account a disaster recovery plan that requires your application to fail over to another region in case of a regional outage. What should you do?
+
+  - A. Deploy the application on two Compute Engine instances in the same project but in a different region. Use the first instance to serve traffic, and use the HTTP load balancing service to fail over to the standby instance in case of a disaster.
+  - B. Deploy the application on a Compute Engine instance. Use the instance to serve traffic, and use the HTTP load balancing service to fail over to an instance on your premises in case of a disaster.
+  - C. Deploy the application on two Compute Engine instance groups, each in the same project but in a different region. Use the first instance group to serve traffic, and use the HTTP load balancing service to fail over to the standby instance group in case of a disaster.
+  - D. Deploy the application on two Compute Engine instance groups, each in a separate project and a different region. Use the first instance group to serve traffic, and use the HTTP load balancing service to fail over to the standby instance group in case of a disaster.
+
+
+66. You are deploying an application on App Engine that needs to integrate with an on-premises database. For security purposes, your on-premises database must not be accessible through the public internet. What should you do?
+
+  - A. Deploy your application on App Engine standard environment and use App Engine firewall rules to limit access to the open on-premises database.
+  - B. Deploy your application on App Engine standard environment and use Cloud VPN to limit access to the on-premises database.
+  - C. Deploy your application on App Engine flexible environment and use App Engine firewall rules to limit access to the on-premises database.
+  - D. Deploy your application on App Engine flexible environment and use Cloud VPN to limit access to the on-premises database.
+
+
+67. You are working in a highly secured environment where public Internet access from the Compute Engine VMs is not allowed. You do not yet have a VPN connection to access an on-premises file server. You need to install specific software on a Compute Engine instance. How should you install the software?
+
+  - A. Upload the required installation files to Cloud Storage. Configure the VM on a subnet with a Private Google Access subnet. Assign only an internal IP address to the VM. Download the installation files to the VM using gsutil.
+  - B. Upload the required installation files to Cloud Storage and use firewall rules to block all traffic except the IP address range for Cloud Storage. Download the files to the VM using gsutil.
+  - C. Upload the required installation files to Cloud Source Repositories. Configure the VM on a subnet with a Private Google Access subnet. Assign only an internal IP address to the VM. Download the installation files to the VM using gcloud.
+  - D. Upload the required installation files to Cloud Source Repositories and use firewall rules to block all traffic except the IP address range for Cloud Source Repositories. Download the files to the VM using gsutil.
+
+
+68. Your company is moving 75 TB of data into Google Cloud. You want to use Cloud Storage and follow Google-recommended practices. What should you do?
+
+  - A. Move your data onto a Transfer Appliance. Use a Transfer Appliance Rehydrator to decrypt the data into Cloud Storage.
+  - B. Move your data onto a Transfer Appliance. Use Cloud Dataprep to decrypt the data into Cloud Storage.
+  - C. Install gsutil on each server that contains data. Use resumable transfers to upload the data into Cloud Storage.
+  - D. Install gsutil on each server containing data. Use streaming transfers to upload the data into Cloud Storage.
+
+
+69. You have an application deployed on Google Kubernetes Engine using a Deployment named echo-deployment. The deployment is exposed using a Service called echo-service. You need to perform an update to the application with minimal downtime to the application. What should you do?
+
+  - A. Use kubectl set image deployment/echo-deployment \<new-image\>
+  - B. Use the rolling update functionality of the Instance Group behind the Kubernetes cluster
+  - C. Update the deployment yaml file with the new container image. Use kubectl delete deployment/echo-deployment and kubectl create ג€"f \<yaml-file\>
+  - D. Update the service yaml file which the new container image. Use kubectl delete service/echo-service and kubectl create ג€"f \<yaml-file\>
+
+
+70. Your company is using BigQuery as its enterprise data warehouse. Data is distributed over several Google Cloud projects. All queries on BigQuery need to be billed on a single project. You want to make sure that no query costs are incurred on the projects that contain the data. Users should be able to query the datasets, but not edit them.
+How should you configure users' access roles?
+
+  - A. Add all users to a group. Grant the group the role of BigQuery user on the billing project and BigQuery dataViewer on the projects that contain the data.
+  - B. Add all users to a group. Grant the group the roles of BigQuery dataViewer on the billing project and BigQuery user on the projects that contain the data.
+  - C. Add all users to a group. Grant the group the roles of BigQuery jobUser on the billing project and BigQuery dataViewer on the projects that contain the data.
+  - D. Add all users to a group. Grant the group the roles of BigQuery dataViewer on the billing project and BigQuery jobUser on the projects that contain the data.
+
+
+71. You have developed an application using Cloud ML Engine that recognizes famous paintings from uploaded images. You want to test the application and allow specific people to upload images for the next 24 hours. Not all users have a Google Account. How should you have users upload images?
+
+  - A. Have users upload the images to Cloud Storage. Protect the bucket with a password that expires after 24 hours.
+  - B. Have users upload the images to Cloud Storage using a signed URL that expires after 24 hours.
+  - C. Create an App Engine web application where users can upload images. Configure App Engine to disable the application after 24 hours. Authenticate users via Cloud Identity.
+  - D. Create an App Engine web application where users can upload images for the next 24 hours. Authenticate users via Cloud Identity.
+
+
+72. Your web application must comply with the requirements of the European Union's General Data Protection Regulation (GDPR). You are responsible for the technical architecture of your web application. What should you do?
+
+  - A. Ensure that your web application only uses native features and services of Google Cloud Platform, because Google already has various certifications and provides ג€pass-onג€ compliance when you use native features.
+  - B. Enable the relevant GDPR compliance setting within the GCPConsole for each of the services in use within your application.
+  - C. Ensure that Cloud Security Scanner is part of your test planning strategy in order to pick up any compliance gaps.
+  - D. Define a design for the security of data in your web application that meets GDPR requirements.
+
+
+73. You need to set up Microsoft SQL Server on GCP. Management requires that there's no downtime in case of a data center outage in any of the zones within a
+GCP region. What should you do?
+
+  - A. Configure a Cloud SQL instance with high availability enabled.
+  - B. Configure a Cloud Spanner instance with a regional instance configuration.
+  - C. Set up SQL Server on Compute Engine, using Always On Availability Groups using Windows Failover Clustering. Place nodes in different subnets.
+  - D. Set up SQL Server Always On Availability Groups using Windows Failover Clustering. Place nodes in different zones.
+
+
+74. The development team has provided you with a Kubernetes Deployment file. You have no infrastructure yet and need to deploy the application. What should you do?
+
+  - A. Use gcloud to create a Kubernetes cluster. Use Deployment Manager to create the deployment.
+  - B. Use gcloud to create a Kubernetes cluster. Use kubectl to create the deployment.
+  - C. Use kubectl to create a Kubernetes cluster. Use Deployment Manager to create the deployment.
+  - D. Use kubectl to create a Kubernetes cluster. Use kubectl to create the deployment.
+
+
+75. You need to evaluate your team readiness for a new GCP project. You must perform the evaluation and create a skills gap plan which incorporates the business goal of cost optimization. Your team has deployed two GCP projects successfully to date. What should you do?
+
+  - A. Allocate budget for team training. Set a deadline for the new GCP project.
+  - B. Allocate budget for team training. Create a roadmap for your team to achieve Google Cloud certification based on job role.
+  - C. Allocate budget to hire skilled external consultants. Set a deadline for the new GCP project.
+  - D. Allocate budget to hire skilled external consultants. Create a roadmap for your team to achieve Google Cloud certification based on job role.
+
+
+76. You are designing an application for use only during business hours. For the minimum viable product release, you'd like to use a managed product that automatically ג€scales to zeroג€ so you don't incur costs when there is no activity.
+Which primary compute resource should you choose?
+
+  - A. Cloud Functions
+  - B. Compute Engine
+  - C. Google Kubernetes Engine
+  - D. AppEngine flexible environment
+
+
+77. You are creating an App Engine application that uses Cloud Datastore as its persistence layer. You need to retrieve several root entities for which you have the identifiers. You want to minimize the overhead in operations performed by Cloud Datastore. What should you do?
+
+  - A. Create the Key object for each Entity and run a batch get operation
+  - B. Create the Key object for each Entity and run multiple get operations, one operation for each entity
+  - C. Use the identifiers to create a query filter and run a batch query operation
+  - D. Use the identifiers to create a query filter and run multiple query operations, one operation for each entity
+
+
+78. You need to upload files from your on-premises environment to Cloud Storage. You want the files to be encrypted on Cloud Storage using customer-supplied encryption keys. What should you do?
+A. Supply the encryption key in a .boto configuration file. Use gsutil to upload the files.
+B. Supply the encryption key using gcloud config. Use gsutil to upload the files to that bucket.
+C. Use gsutil to upload the files, and use the flag --encryption-key to supply the encryption key.
+D. Use gsutil to create a bucket, and use the flag --encryption-key to supply the encryption key. Use gsutil to upload the files to that bucket.
+
+
+79. Your customer wants to capture multiple GBs of aggregate real-time key performance indicators (KPIs) from their game servers running on Google Cloud Platform and monitor the KPIs with low latency. How should they capture the KPIs?
+
+  - A. Store time-series data from the game servers in Google Bigtable, and view it using Google Data Studio.
+  - B. Output custom metrics to Stackdriver from the game servers, and create a Dashboard in Stackdriver Monitoring Console to view them.
+  - C. Schedule BigQuery load jobs to ingest analytics files uploaded to Cloud Storage every ten minutes, and visualize the results in Google Data Studio.
+  - D. Insert the KPIs into Cloud Datastore entities, and run ad hoc analysis and visualizations of them in Cloud Datalab.
+
+
+80. You have a Python web application with many dependencies that requires 0.1 CPU cores and 128 MB of memory to operate in production. You want to monitor and maximize machine utilization. You also want to reliably deploy new versions of the application. Which set of steps should you take?
+
+  - A. Perform the following: 1. Create a managed instance group with f1-micro type machines. 2. Use a startup script to clone the repository, check out the production branch, install the dependencies, and start the Python app. 3. Restart the instances to automatically deploy new production releases.
+  - B. Perform the following: 1. Create a managed instance group with n1-standard-1 type machines. 2. Build a Compute Engine image from the production branch that contains all of the dependencies and automatically starts the Python app. 3. Rebuild the Compute Engine image, and update the instance template to deploy new production releases.
+  - C. Perform the following: 1. Create a Google Kubernetes Engine (GKE) cluster with n1-standard-1 type machines. 2. Build a Docker image from the production branch with all of the dependencies, and tag it with the version number. 3. Create a Kubernetes Deployment with the imagePullPolicy set to 'IfNotPresent' in the staging namespace, and then promote it to the production namespace after testing.
+  - D. Perform the following: 1. Create a GKE cluster with n1-standard-4 type machines. 2. Build a Docker image from the master branch with all of the dependencies, and tag it with 'latest'. 3. Create a Kubernetes Deployment in the default namespace with the imagePullPolicy set to 'Always'. Restart the pods to automatically deploy new production releases.
