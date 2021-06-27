@@ -592,3 +592,68 @@ Gbps. You want to follow Google-recommended practices. How should you set up the
   - B. Create a VPC and connect it to your on-premises data center using a single Cloud VPN.
   - C. Create a Cloud Content Delivery Network (Cloud CDN) and connect it to your on-premises data center using Dedicated Interconnect.
   - D. Create a Cloud Content Delivery Network (Cloud CDN) and connect it to your on-premises datacenter using a single Cloud VPN.
+
+
+57. You are analyzing and defining business processes to support your startup's trial usage of GCP, and you don't yet know what consumer demand for your product will be. Your manager requires you to minimize GCP service costs and adhere to Google best practices. What should you do?
+
+  - A. Utilize free tier and sustained use discounts. Provision a staff position for service cost management.
+  - B. Utilize free tier and sustained use discounts. Provide training to the team about service cost management.
+  - C. Utilize free tier and committed use discounts. Provision a staff position for service cost management.
+  - D. Utilize free tier and committed use discounts. Provide training to the team about service cost management.
+
+
+58. You are building a continuous deployment pipeline for a project stored in a Git source repository and want to ensure that code changes can be verified before deploying to production. What should you do?
+
+  - A. Use Spinnaker to deploy builds to production using the red/black deployment strategy so that changes can easily be rolled back.
+  - B. Use Spinnaker to deploy builds to production and run tests on production deployments.
+  - C. Use Jenkins to build the staging branches and the master branch. Build and deploy changes to production for 10% of users before doing a complete rollout.
+  - D. Use Jenkins to monitor tags in the repository. Deploy staging tags to a staging environment for testing. After testing, tag the repository for production and deploy that to the production environment.
+
+
+59. You have an outage in your Compute Engine managed instance group: all instances keep restarting after 5 seconds. You have a health check configured, but autoscaling is disabled. Your colleague, who is a Linux expert, offered to look into the issue. You need to make sure that he can access the VMs. What should you do?
+
+  - A. Grant your colleague the IAM role of project Viewer
+  - B. Perform a rolling restart on the instance group
+  - C. Disable the health check for the instance group. Add his SSH key to the project-wide SSH Keys
+  - D. Disable autoscaling for the instance group. Add his SSH key to the project-wide SSH Keys
+
+
+60. Your company is migrating its on-premises data center into the cloud. As part of the migration, you want to integrate Google Kubernetes Engine (GKE) for workload orchestration. Parts of your architecture must also be PCI DSS-compliant. Which of the following is most accurate?
+
+  - A. App Engine is the only compute platform on GCP that is certified for PCI DSS hosting.
+  - B. GKE cannot be used under PCI DSS because it is considered shared hosting.
+  - C. GKE and GCP provide the tools you need to build a PCI DSS-compliant environment.
+  - D. All Google Cloud services are usable because Google Cloud Platform is certified PCI-compliant.
+
+
+61. Your company has multiple on-premises systems that serve as sources for reporting. The data has not been maintained well and has become degraded over time.
+You want to use Google-recommended practices to detect anomalies in your company data. What should you do?
+
+  - A. Upload your files into Cloud Storage. Use Cloud Datalab to explore and clean your data.
+  - B. Upload your files into Cloud Storage. Use Cloud Dataprep to explore and clean your data.
+  - C. Connect Cloud Datalab to your on-premises systems. Use Cloud Datalab to explore and clean your data.
+  - D. Connect Cloud Dataprep to your on-premises systems. Use Cloud Dataprep to explore and clean your data.
+
+
+62. Google Cloud Platform resources are managed hierarchically using organization, folders, and projects. When Cloud Identity and Access Management (IAM) policies exist at these different levels, what is the effective policy at a particular node of the hierarchy?
+
+  - A. The effective policy is determined only by the policy set at the node
+  - B. The effective policy is the policy set at the node and restricted by the policies of its ancestors
+  - C. The effective policy is the union of the policy set at the node and policies inherited from its ancestors
+  - D. The effective policy is the intersection of the policy set at the node and policies inherited from its ancestors
+
+
+63. You are migrating your on-premises solution to Google Cloud in several phases. You will use Cloud VPN to maintain a connection between your on-premises systems and Google Cloud until the migration is completed. You want to make sure all your on-premise systems remain reachable during this period. How should you organize your networking in Google Cloud?
+
+  - A. Use the same IP range on Google Cloud as you use on-premises
+  - B. Use the same IP range on Google Cloud as you use on-premises for your primary IP range and use a secondary range that does not overlap with the range you use on-premises
+  - C. Use an IP range on Google Cloud that does not overlap with the range you use on-premises
+  - D. Use an IP range on Google Cloud that does not overlap with the range you use on-premises for your primary IP range and use a secondary range with the same IP range as you use on-premises
+
+
+64. You have found an error in your App Engine application caused by missing Cloud Datastore indexes. You have created a YAML file with the required indexes and want to deploy these new indexes to Cloud Datastore. What should you do?
+
+  - A. Point gcloud datastore create-indexes to your configuration file
+  - B. Upload the configuration file to App Engineג€™s default Cloud Storage bucket, and have App Engine detect the new indexes
+  - C. In the GCP Console, use Datastore Admin to delete the current indexes and upload the new configuration file
+  - D. Create an HTTP request to the built-in python module to send the index configuration file to your application
