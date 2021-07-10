@@ -1,6 +1,6 @@
 # Database connection pool problem when using SQLAlchemy
 
-currently using create_engineWhen creating an engine, if the connection pool setting is not specified by default, in general, SQLAlchemy will use oneQueuePoolBind to the newly created engine. And attach the appropriate connection pool parameters.
+currently using create_engine When creating an engine, if the connection pool setting is not specified by default, in general, SQLAlchemy will use oneQueuePoolBind to the newly created engine. And attach the appropriate connection pool parameters.
 
 In the default method create_engine (as follows), an engine with a connection pool will be created.
 
