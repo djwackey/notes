@@ -1,4 +1,5 @@
 # 使用 kubeadm 创建一个高可用 etcd 集群
+
 <blockquote>说明：<br/>在本指南中，当 kubeadm 用作为外部 etcd 节点管理工具，请注意 kubeadm 不计划支持此类节点的证书更换或升级。对于长期规划是使用 etcdadm 增强工具来管理这方面。</blockquote>
 默认情况下，kubeadm 运行单成员的 etcd 集群，该集群由控制面节点上的 kubelet 以静态 Pod 的方式进行管理。由于 etcd 集群只包含一个成员且不能在任一成员不可用时保持运行，所以这不是一种高可用设置。本任务，将告诉你如何在使用 kubeadm 创建一个 kubernetes 集群时创建一个外部 etcd：有三个成员的高可用 etcd 集群。
 
@@ -18,6 +19,7 @@
 1. 将 kubelet 配置为 etcd 的服务管理器。
 <blockquote>说明：你必须在要运行 etcd 的所有主机上执行此操作。</blockquote>
 由于 etcd 是首先创建的，因此你必须通过创建具有更高优先级的新文件来覆盖 kubeadm 提供的 kubelet 单元文件。
+
 ```shell
 cat << EOF > /etc/systemd/system/kubelet.service.d/20-etcd-service-manager.conf
 [Service]
