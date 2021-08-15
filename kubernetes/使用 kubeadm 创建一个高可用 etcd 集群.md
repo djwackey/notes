@@ -8,7 +8,7 @@
 * 每个主机必须 [安装有 docker、kubelet 和 kubeadm][工具箱]。
 * 一些可以用来在主机间复制文件的基础设施。例如 `ssh` 和 `scp` 就可以满足需求。
 
-[工具箱]: /docs/setup/production-environment/tools/kubeadm/install-kubeadm/
+[工具箱]: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
 
 # 建立集群
 
