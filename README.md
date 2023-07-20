@@ -35,5 +35,4 @@
     * [读过的书](https://github.com/djwackey/notes/blob/master/books/books.md)
 * 源码阅读
     * live555
-    * crtmpserver
     * [Flask](https://github.com/djwackey/notes/blob/master/python/flask.md)
