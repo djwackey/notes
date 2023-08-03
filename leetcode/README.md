@@ -2,15 +2,15 @@
 * [1.两数之和](https://github.com/djwackey/notes/blob/master/leetcode/two_sum.ipynb)
 * [2.两数相加](https://github.com/djwackey/notes/blob/master/leetcode/add_two_numbers.ipynb)
 * [3.无重复字符的最长子串](https://github.com/djwackey/notes/blob/master/leetcode/length_of_longest_substr.ipynb)
-* [4.寻找两个正序数组的中位数]()
-* [5.最长回文子串]()
-* [6.N 字形变换]()
+* [4.寻找两个正序数组的中位数]
+* [5.最长回文子串]
+* [6.N 字形变换]
 * [7.整数反转](https://github.com/djwackey/notes/blob/master/leetcode/reverse_integer.ipynb)
-* [8.字符串转换整数 (atoi)]()
+* [8.字符串转换整数 (atoi)]
 * [9.回文数](https://github.com/djwackey/notes/blob/master/leetcode/palindrome_number.ipynb)
-* [10.正则表达式匹配]()
-* [11.盛最多水的容器]()
-* [12.整数转罗马数字]()
+* [10.正则表达式匹配]
+* [11.盛最多水的容器]
+* [12.整数转罗马数字]
 * [13.罗马数字转整数](https://github.com/djwackey/notes/blob/master/leetcode/roman_to_integer.ipynb)
 * [14.最长公共前缀](https://github.com/djwackey/notes/blob/master/leetcode/longest_common_prefix.ipynb)
 * [15.]()
