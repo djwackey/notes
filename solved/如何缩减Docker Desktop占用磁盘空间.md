@@ -10,8 +10,8 @@
 检查它是否正在运行：wsl --list --verbose
 
 PS C:\WINDOWS\system32> wsl --list --verbose
-NAME STATE VERSION
 
+NAME STATE VERSION
 docker-desktop-data Stopped 2
 docker-desktop Stopped 2
 如果在运行可以通过以下命令进行停止。
